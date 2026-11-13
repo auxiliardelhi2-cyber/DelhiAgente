@@ -1,0 +1,744 @@
+<meta name="dash-one-writer">
+<style>
+  .da { display: grid; gap: var(--cds-gap-xl); font-family: var(--font-anthropic-sans); color: var(--color-fg); }
+  .da-head { display: grid; gap: var(--cds-gap-sm); border-top: 3px solid #FC7D44; padding-top: var(--cds-pad-md); }
+  .da-eyebrow { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); letter-spacing: .06em; text-transform: uppercase; }
+  .da-title { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); margin: 0; text-wrap: balance; }
+  .da-lede { font-size: var(--cds-font-size-body); margin: 0; max-width: 70ch; line-height: 1.5; }
+  .da-sec { display: grid; gap: var(--cds-gap-md); }
+  .da [hidden] { display: none !important; }
+  .da-sec > h2 { font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); margin: 0; }
+  .da-sub { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); margin: 0; }
+  .da-grid { display: grid; gap: var(--cds-gap-md); grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); }
+  .da-grid2 { display: grid; gap: var(--cds-gap-md); grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+  .da-card { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); display: grid; gap: var(--cds-gap-xs); align-content: start; min-width: 0; }
+  .da-k { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+  .da-v { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: 2rem; line-height: 1.1; font-variant-numeric: tabular-nums; }
+  .da-d { font-size: var(--cds-font-size-caption); font-variant-numeric: tabular-nums; color: var(--color-fg-muted); }
+  .da-up { color: var(--color-ok); } .da-down { color: var(--color-bad); }
+  .da-alert { border-left: 4px solid var(--color-warn); }
+  .da-wait { border-style: dashed; }
+  .da-chips { display: flex; flex-wrap: wrap; gap: var(--cds-gap-xs); padding: 0; margin: 0; list-style: none; }
+  .da-chips li { font-size: var(--cds-font-size-caption); border: 1px solid var(--color-border-line); border-radius: 999px; padding: 2px 10px; }
+  .da-chart { position: relative; min-height: 200px; }
+  .da-chart svg text { fill: var(--cds-text-secondary); font-size: 11px; }
+  .da-tip { position: absolute; pointer-events: none; background: var(--cds-surface-popover); border: 1px solid var(--cds-border); box-shadow: var(--cds-shadow-popover); border-radius: var(--cds-radius); padding: 6px 8px; font-size: var(--cds-font-size-caption); white-space: nowrap; }
+  .da-op h3 { margin: 0; font-family: var(--font-anthropic-serif); font-weight: 400; font-size: 1.25rem; line-height: 1.3; text-wrap: balance; }
+  .da-why { display: grid; gap: var(--cds-gap-xs); border-top: 1px solid var(--color-border-line); padding-top: var(--cds-pad-sm); font-size: var(--cds-font-size-caption); }
+  .da-why-num { font-variant-numeric: tabular-nums; font-weight: var(--cds-font-weight-medium); }
+  .da-score { display: flex; align-items: baseline; gap: var(--cds-gap-sm); }
+  .da-score-n { font-family: var(--font-anthropic-serif); font-size: 2rem; font-variant-numeric: tabular-nums; }
+  .da-score-hot { color: var(--color-bad); }
+  .da-bars { display: grid; gap: 3px; font-size: var(--cds-font-size-caption); }
+  .da-bar { display: grid; grid-template-columns: 7.5em 1fr 3.2em; gap: var(--cds-gap-xs); align-items: center; color: var(--color-fg-muted); font-variant-numeric: tabular-nums; }
+  .da-bar-track { height: 6px; background: var(--cds-chart-grid); border-radius: 3px; overflow: hidden; }
+  .da-bar-fill { height: 100%; background: var(--cds-chart-muted); }
+  .da-chip { font-size: var(--cds-font-size-caption); border: 1px solid var(--color-border-line); border-radius: 999px; padding: 1px 8px; }
+  .da-fb { display: flex; flex-wrap: wrap; gap: var(--cds-gap-xs); align-items: center; border-top: 1px solid var(--color-border-line); padding-top: var(--cds-pad-sm); }
+  .da-fb textarea { width: 100%; font: inherit; font-size: var(--cds-font-size-caption); background: var(--color-bg); color: var(--color-fg); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: 6px; }
+  .da-btn[aria-pressed="true"] { border-color: var(--color-fg); font-weight: var(--cds-font-weight-medium); }
+  .da-tablewrap { overflow-x: auto; }
+  .da-grid3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin: 8px 0 12px; }
+  .da-vt th, .da-vt td { padding: 8px 10px; white-space: nowrap; }
+  .da-vt .da-num { text-align: right; font-variant-numeric: tabular-nums; }
+  .da-vt td:first-child { font-variant-numeric: normal; }
+  .da-pct { display: flex; align-items: center; gap: 8px; font-variant-numeric: tabular-nums; }
+  .da-pct-n { min-width: 3ch; text-align: right; }
+  .da-vtbar { display: inline-block; width: 80px; height: 8px; background: var(--color-border-line); border-radius: 4px; overflow: hidden; }
+  .da-vtbar span { display: block; height: 100%; background: #FC7D44; }
+  .da-table { width: 100%; border-collapse: collapse; font-size: var(--cds-font-size-caption); }
+  .da-table th, .da-table td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--color-border-line); vertical-align: top; }
+  .da-table td:first-child { font-variant-numeric: tabular-nums; }
+  .da-hist { display: flex; gap: var(--cds-gap-sm); flex-wrap: wrap; font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+  .da-tabs { display: flex; flex-wrap: wrap; gap: var(--cds-gap-xs); margin-top: var(--cds-gap-sm); }
+  .da-tabbtn { font: inherit; font-size: var(--cds-font-size-body); background: var(--color-panel); color: var(--color-fg-muted); border: 1px solid var(--color-border-line); border-radius: 999px; padding: 6px 14px; cursor: pointer; }
+  .da-tabbtn[aria-selected="true"] { background: var(--color-fg); color: var(--color-bg); border-color: var(--color-fg); }
+  .da-tabbtn:focus-visible { outline: 2px solid #FC7D44; outline-offset: 2px; }
+  .da-tab { display: grid; gap: var(--cds-gap-xl); }
+  .da-prompts { border-top: 1px solid var(--color-border-line); padding-top: var(--cds-pad-sm); display: grid; gap: var(--cds-gap-sm); }
+  .da-prompts summary { cursor: pointer; font-weight: var(--cds-font-weight-medium); }
+  .da-prompt { display: grid; gap: var(--cds-gap-xs); background: var(--color-bg); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-sm); }
+  .da-prompt-txt { margin: 0; font-size: var(--cds-font-size-caption); line-height: 1.45; }
+  .da-mais { display: grid; gap: var(--cds-gap-sm); border-top: 1px solid var(--color-border-line); padding-top: var(--cds-pad-sm); }
+  .da-lermais { font-weight: var(--cds-font-weight-medium); }
+  .da-trend-num { font-family: var(--font-anthropic-serif); font-size: 1.6rem; font-variant-numeric: tabular-nums; }
+  .da-trend p, .da-idea p { margin: 0; line-height: 1.45; }
+  .da-tag { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); text-transform: uppercase; letter-spacing: .05em; }
+  .da-src a { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); }
+  .da-adapt { font-size: var(--cds-font-size-caption); border-top: 1px solid var(--color-border-line); padding-top: var(--cds-pad-sm); }
+  .da-idea h3 { margin: 0; font-size: var(--cds-font-size-body); font-weight: var(--cds-font-weight-medium); }
+  .da-idea dl { margin: 0; display: grid; gap: var(--cds-gap-xs); }
+  .da-idea dt { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); }
+  .da-idea dd { margin: 0; }
+  .da-btn { justify-self: start; font: inherit; font-size: var(--cds-font-size-caption); background: var(--color-bg); color: var(--color-fg); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: 4px 10px; cursor: pointer; }
+  .da-btn:focus-visible { outline: 2px solid #FC7D44; outline-offset: 2px; }
+  .da-foot summary { cursor: pointer; color: var(--color-fg-muted); }
+  .da-foot ul { line-height: 1.5; }
+  .da-prog-dia h3 { margin: 0; font-size: var(--cds-font-size-body); font-weight: var(--cds-font-weight-medium); }
+  .da-prog-item { display: grid; gap: var(--cds-gap-sm); border-top: 1px solid var(--color-border-line); padding-top: var(--cds-pad-sm); }
+  .da-prog-item h4 { margin: 0; font-size: var(--cds-font-size-body); font-weight: var(--cds-font-weight-medium); }
+  .da-prog-item p { margin: 0; line-height: 1.45; }
+  .da-prog-canal { font-size: var(--cds-font-size-caption); font-weight: var(--cds-font-weight-medium); color: #FC7D44; text-transform: uppercase; letter-spacing: .05em; }
+  .da-status { display: flex; flex-wrap: wrap; gap: var(--cds-gap-xs); align-items: center; }
+  .da-fb .da-btn[aria-pressed="true"], .da-status .da-btn[aria-pressed="true"] { background: var(--color-fg); color: var(--color-bg); border-color: var(--color-fg); }
+  .da-tela { display: grid; gap: var(--cds-gap-xs); background: var(--color-bg); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-sm); }
+  .da-tela p { margin: 0; font-size: var(--cds-font-size-caption); line-height: 1.45; }
+  .da-sug { border-color: #FC7D44; }
+  [data-dash-source-state=refreshing] { opacity: .5; }
+</style>
+
+<div class="da">
+  <header class="da-head" id="topo">
+    <span class="da-eyebrow">Delhi Especiarias · marketing</span>
+    <h1 class="da-title">Painel DelhiAgente</h1>
+    <div class="da-tabs" role="tablist" aria-label="Seções do painel">
+      <button type="button" class="da-tabbtn" role="tab" id="aba-radar" aria-controls="radar-diario" aria-selected="true" data-tab="radar-diario">Marketing</button>
+      <button type="button" class="da-tabbtn" role="tab" id="aba-semanal" aria-controls="semanal" aria-selected="false" data-tab="semanal">Semanal: redes sociais</button>
+    </div>
+  </header>
+
+  <div class="da-tab" id="radar-diario" role="tabpanel" aria-labelledby="aba-radar">
+  <section class="da-sec" id="radar">
+    <h2>Radar de pautas</h2>
+    <p class="da-sub">Cada pauta recebe nota de 0 a 100: fit com produto Delhi (25), momento (20), força do sinal (20), público (15), produção com IA (10) e se é perene (10). As melhores entram na programação semanal; as outras com 75 ou mais ficam nas ideias alternativas. Pautas abaixo de 75 não entram no painel.</p>
+    <div class="da-grid">
+      <div class="da-card" id="card-nota-radar">
+        <span class="da-k">Nota do radar de hoje (meta 8,5)</span>
+        <span class="da-v" data-draw="radar-nota" data-source="radar">—</span>
+        <span class="da-d" data-draw="radar-nota-d"></span>
+      </div>
+      <div class="da-card" id="card-radar-contagem">
+        <span class="da-k">Pautas com nota 75 ou mais</span>
+        <span class="da-v" data-draw="radar-total" data-source="radar_resumo" data-row="0" data-field="total">—</span>
+        <span class="da-d"><b data-draw="radar-hot" data-source="radar_resumo" data-row="0" data-field="hot">—</b> acima de 85</span>
+      </div>
+    </div>
+    <div class="da-card" id="radar-motivo">
+      <span class="da-k">Por que essa nota</span>
+      <p class="da-lede" data-draw="radar-motivo" data-source="radar">—</p>
+      <div data-draw="radar-hist" data-source="radar"></div>
+    </div>
+  </section>
+
+  <section class="da-sec" id="prog-semana">
+    <h2>Programação semanal</h2>
+  </section>
+  <section class="da-sec" id="prog-dias">
+    <div class="da-grid2" data-draw="prog-dias" data-source="programacao"></div>
+  </section>
+  <section class="da-sec" id="prog-conferencia" hidden>
+    <h2>Conferência da semana anterior</h2>
+    <div class="da-grid2" data-draw="prog-conf" data-source="programacao"></div>
+  </section>
+  <section class="da-sec" id="ideias">
+    <h2>💡 Ideias alternativas</h2>
+    <p class="da-sub">Pautas com nota 75 ou mais que não estão na programação da semana. Podem substituir um post quando fizer sentido.</p>
+    <div class="da-grid2" data-draw="pautas-ideias" data-source="radar"></div>
+  </section>
+
+  <section class="da-sec" id="datas">
+    <h2>Datas que se aproximam</h2>
+    <div class="da-grid" data-draw="datas" data-source="radar"></div>
+  </section>
+
+  </div>
+
+  <div class="da-tab" id="semanal" role="tabpanel" aria-labelledby="aba-semanal" hidden>
+    <div class="da-head">
+    <p class="da-sub">Semana de <b data-draw="semana" data-source="resumo">—</b>, comparada com a semana anterior.</p>
+    <p class="da-lede">O Instagram teve <b data-draw="lede-igv" data-source="resumo" data-where="metrica=ig_views" data-field="atual">—</b> visualizações na semana, com <b data-draw="lede-posts" data-source="efeito_posts" data-row="0" data-field="posts_semana">—</b> posts publicados. Nos dias com post, as visualizações médias foram <b data-draw="lede-mult" data-source="efeito_posts" data-row="0" data-field="multiplicador">—</b> vezes maiores do que nos dias sem post.</p>
+    </div>
+  <section class="da-sec" id="resumo">
+    <h2>Resumo da semana</h2>
+    <div class="da-grid">
+      <div class="da-card" id="card-ig-views">
+        <span class="da-k">Visualizações no Instagram</span>
+        <span class="da-v" data-draw="kpi" data-m="ig_views" data-source="resumo" data-where="metrica=ig_views" data-field="atual">—</span>
+        <span class="da-d" data-draw="kpi-d" data-m="ig_views"></span>
+      </div>
+      <div class="da-card" id="card-ig-seg">
+        <span class="da-k">Seguidores no Instagram (hoje)</span>
+        <span class="da-v" data-draw="ig-seg" data-source="ig_seguidores" data-row="0" data-field="followers_count">—</span>
+        <span class="da-d">Total atual da conta @delhiespeciarias</span>
+      </div>
+      <div class="da-card" id="card-tt-views">
+        <span class="da-k">Visualizações no TikTok</span>
+        <span class="da-v" data-draw="kpi" data-m="tt_views" data-source="resumo" data-where="metrica=tt_views" data-field="atual">—</span>
+        <span class="da-d" data-draw="kpi-d" data-m="tt_views"></span>
+      </div>
+      <div class="da-card" id="card-shop">
+        <span class="da-k">Vendas no TikTok Shop (GMV)</span>
+        <span class="da-v" data-draw="kpi" data-m="shop_gmv" data-source="resumo" data-where="metrica=shop_gmv" data-field="atual">—</span>
+        <span class="da-d" data-draw="kpi-d" data-m="shop_gmv"></span>
+      </div>
+      <div class="da-card da-alert" id="card-sem-post">
+        <span class="da-k">Dias sem post no Instagram</span>
+        <span class="da-v" data-draw="dias-sem-post" data-source="efeito_posts" data-row="0" data-field="dias_sem_post">—</span>
+        <span class="da-d">Último post em <span data-draw="ultimo-post" data-source="efeito_posts" data-row="0" data-field="ultimo_post">—</span></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="da-sec" id="vendas">
+    <h2>TikTok Shop</h2>
+    <div class="da-card" id="tiktok-shop">
+      <span class="da-k">TikTok Shop: vendas (GMV) por semana, últimas 4 semanas</span>
+      <div class="da-chart" data-draw="ch-shop" data-source="shop_semanas"></div>
+      <span class="da-d">Pedidos na semana: <b data-draw="kpi-raw" data-m="shop_pedidos" data-source="resumo" data-where="metrica=shop_pedidos" data-field="atual">—</b> · Ticket médio: <b data-draw="kpi-raw" data-m="shop_ticket" data-source="resumo" data-where="metrica=shop_ticket" data-field="atual">—</b></span>
+    </div>
+  </section>
+
+  <section class="da-sec" id="redes">
+    <h2>Redes sociais</h2>
+    <div class="da-grid2">
+      <div class="da-card" id="ch-ig-card">
+        <span class="da-k">Instagram: visualizações por dia (4 semanas). Pontos marcam os dias com post.</span>
+        <div class="da-chart" data-draw="ch-ig" data-source="ig_diario ig_posts"></div>
+      </div>
+      <div class="da-card" id="ch-tt-card">
+        <span class="da-k">TikTok: visualizações por dia (4 semanas)</span>
+        <div class="da-chart" data-draw="ch-tt" data-source="tt_diario"></div>
+      </div>
+    </div>
+    <div class="da-card da-alert" id="efeito-post">
+      <span class="da-k">O que os dados mostram</span>
+      <p class="da-lede">Nas últimas 4 semanas, dias com post tiveram em média <b data-draw="ef-com" data-source="efeito_posts" data-row="0" data-field="media_com_post">—</b> visualizações, contra <b data-draw="ef-sem" data-source="efeito_posts" data-row="0" data-field="media_sem_post">—</b> nos dias sem post. Postar com frequência é a alavanca mais direta que a Delhi tem hoje.</p>
+    </div>
+  </section>
+
+  </div>
+
+  <details class="da-foot" id="notas">
+    <summary>Como ler este painel</summary>
+    <ul>
+      <li>Semana = segunda a domingo, a última completa nos dados.</li>
+      <li>Visualizações = vezes que o conteúdo da conta foi exibido (posts, reels e stories).</li>
+      <li>GMV = valor bruto vendido no TikTok Shop, antes de taxas.</li>
+      <li>Ticket médio = GMV dividido pelo número de pedidos.</li>
+      <li>Comparação só com a semana anterior: no plano de teste do Windsor há apenas 30 dias de histórico, o que não basta para a média de 4 semanas.</li>
+      <li>TikTok Shop "incompleto": o Windsor deixou de entregar algum dia da semana. O valor mostrado soma só os dias que vieram e não é comparado.</li>
+      <li>Os números vêm do Windsor (Instagram, TikTok e TikTok Shop) e rodam com o acesso de quem abre o painel.</li>
+      <li>Produção IA = quanto a pauta pode ser feita só com IA a partir de fotos reais dos produtos, sem gravar receitas e sem rostos.</li>
+      <li>Nota do radar (0 a 10) = média de cobertura dos temas, qualidade das fontes e frescor das fontes. Meta: 8,5.</li>
+      <li>👍/👎 em cada pauta ficam guardados no painel e o DelhiAgente lê na próxima rodada para ajustar as notas.</li>
+    </ul>
+  </details>
+</div>
+
+<script>
+  const weekly = (rows, fields) => {
+    const day = 864e5;
+    const d = rows.map((r) => ({ ...r, t: Date.parse(String(r.date).slice(0, 10) + 'T00:00:00Z') })).filter((r) => !isNaN(r.t));
+    if (!d.length) return [];
+    const max = Math.max(...d.map((r) => r.t));
+    const end = max - new Date(max).getUTCDay() * day;
+    const out = [];
+    for (let i = 3; i >= 0; i--) {
+      const hi = end - i * 7 * day, lo = hi - 6 * day;
+      const row = { inicio: new Date(lo).toISOString().slice(0, 10), fim: new Date(hi).toISOString().slice(0, 10) };
+      for (const f of fields) row[f] = d.filter((r) => r.t >= lo && r.t <= hi).reduce((s, r) => s + (+r[f] || 0), 0);
+      out.push(row);
+    }
+    return out;
+  };
+  window.daWeekly = weekly;
+
+  dash.calc('ig_semanas', {
+    inputs: ['ig_diario'],
+    title: 'Instagram por semana',
+    description: 'Soma das visualizações e interações por semana (segunda a domingo), últimas 4 semanas.',
+    fn: (ig_diario) => {
+      const day = 864e5;
+      const d = ig_diario.map((r) => ({ ...r, t: Date.parse(String(r.date).slice(0, 10) + 'T00:00:00Z') })).filter((r) => !isNaN(r.t));
+      if (!d.length) return [];
+      const max = Math.max(...d.map((r) => r.t));
+      const end = max - new Date(max).getUTCDay() * day;
+      const out = [];
+      for (let i = 3; i >= 0; i--) {
+        const hi = end - i * 7 * day, lo = hi - 6 * day;
+        const w = d.filter((r) => r.t >= lo && r.t <= hi);
+        out.push({ inicio: new Date(lo).toISOString().slice(0, 10), fim: new Date(hi).toISOString().slice(0, 10),
+          views: w.reduce((s, r) => s + (+r.views || 0), 0), interacoes: w.reduce((s, r) => s + (+r.total_interactions || 0), 0) });
+      }
+      return out;
+    }
+  });
+
+  dash.calc('tt_semanas', {
+    inputs: ['tt_diario'],
+    title: 'TikTok por semana',
+    description: 'Soma das visualizações e curtidas por semana (segunda a domingo), últimas 4 semanas.',
+    fn: (tt_diario) => {
+      const day = 864e5;
+      const d = tt_diario.map((r) => ({ ...r, t: Date.parse(String(r.date).slice(0, 10) + 'T00:00:00Z') })).filter((r) => !isNaN(r.t));
+      if (!d.length) return [];
+      const max = Math.max(...d.map((r) => r.t));
+      const end = max - new Date(max).getUTCDay() * day;
+      const out = [];
+      for (let i = 3; i >= 0; i--) {
+        const hi = end - i * 7 * day, lo = hi - 6 * day;
+        const w = d.filter((r) => r.t >= lo && r.t <= hi);
+        out.push({ inicio: new Date(lo).toISOString().slice(0, 10), fim: new Date(hi).toISOString().slice(0, 10),
+          views: w.reduce((s, r) => s + (+r.video_views || 0), 0), curtidas: w.reduce((s, r) => s + (+r.likes || 0), 0) });
+      }
+      return out;
+    }
+  });
+
+  dash.calc('shop_semanas', {
+    inputs: ['shop_diario'],
+    title: 'TikTok Shop por semana',
+    description: 'GMV e pedidos somados por semana (segunda a domingo), últimas 4 semanas, ticket médio e quantos dos 7 dias vieram nos dados.',
+    fn: (shop_diario) => {
+      const day = 864e5;
+      const d = shop_diario.map((r) => ({ ...r, t: Date.parse(String(r.date).slice(0, 10) + 'T00:00:00Z') })).filter((r) => !isNaN(r.t));
+      if (!d.length) return [];
+      const max = Math.max(...d.map((r) => r.t));
+      const end = max - new Date(max).getUTCDay() * day;
+      const out = [];
+      for (let i = 3; i >= 0; i--) {
+        const hi = end - i * 7 * day, lo = hi - 6 * day;
+        const w = d.filter((r) => r.t >= lo && r.t <= hi);
+        const gmv = Math.round(w.reduce((s, r) => s + (+r.shop_performance_gmv_amount || 0), 0) * 100) / 100;
+        const pedidos = w.reduce((s, r) => s + (+r.shop_performance_orders || 0), 0);
+        const dias = new Set(w.map((r) => String(r.date).slice(0, 10))).size;
+        out.push({ inicio: new Date(lo).toISOString().slice(0, 10), fim: new Date(hi).toISOString().slice(0, 10),
+          gmv, pedidos, ticket: pedidos ? Math.round(gmv / pedidos * 100) / 100 : 0, dias, completo: dias === 7 });
+      }
+      return out;
+    }
+  });
+
+  dash.calc('resumo', {
+    inputs: ['ig_semanas', 'tt_semanas', 'shop_semanas'],
+    title: 'Resumo da semana',
+    description: 'Última semana completa contra a semana anterior. A comparação marca o TikTok Shop como incompleto quando falta algum dia.',
+    fn: (ig_semanas, tt_semanas, shop_semanas) => {
+      const linha = (metrica, semanas, campo) => {
+        if (!Array.isArray(semanas) || semanas.length < 2) return null;
+        const n = semanas.length, ult = semanas[n - 1], ant = semanas[n - 2];
+        const atual = ult[campo], anterior = ant[campo];
+        const media4 = null;
+        const pct = (a, b) => (b ? Math.round((a - b) / b * 1000) / 10 : null);
+        const temDias = ult.dias !== undefined;
+        const completo = !temDias || (ult.completo && ant.completo);
+        return { metrica, inicio: ult.inicio, fim: ult.fim, atual, anterior, media4,
+          dias_semana: temDias ? Math.min(ult.dias, ant.dias) : 7, completo,
+          var_anterior: completo ? pct(atual, anterior) : null, var_media4: pct(atual, media4) };
+      };
+      return [
+        linha('ig_views', ig_semanas, 'views'),
+        linha('tt_views', tt_semanas, 'views'),
+        linha('shop_gmv', shop_semanas, 'gmv'),
+        linha('shop_pedidos', shop_semanas, 'pedidos'),
+        linha('shop_ticket', shop_semanas, 'ticket')
+      ].filter(Boolean);
+    }
+  });
+
+  dash.calc('efeito_posts', {
+    inputs: ['ig_diario', 'ig_posts'],
+    title: 'Efeito dos posts no Instagram',
+    description: 'Visualizações médias em dias com e sem post, dias desde o último post e posts na última semana.',
+    fn: (ig_diario, ig_posts) => {
+      const day = 864e5;
+      const diasPost = new Set(ig_posts.map((p) => String(p.timestamp).slice(0, 10)));
+      const com = ig_diario.filter((r) => diasPost.has(String(r.date).slice(0, 10)));
+      const sem = ig_diario.filter((r) => !diasPost.has(String(r.date).slice(0, 10)));
+      const media = (a) => (a.length ? Math.round(a.reduce((s, r) => s + (+r.views || 0), 0) / a.length * 10) / 10 : 0);
+      const ultimo = [...diasPost].sort().pop() || null;
+      const max = Math.max(...ig_diario.map((r) => Date.parse(String(r.date).slice(0, 10) + 'T00:00:00Z')));
+      const fim = max - new Date(max).getUTCDay() * day, ini = fim - 6 * day;
+      const hoje = Date.parse(new Date().toISOString().slice(0, 10) + 'T00:00:00Z');
+      const posts_semana = ig_posts.filter((p) => { const t = Date.parse(String(p.timestamp).slice(0, 10) + 'T00:00:00Z'); return t >= ini && t <= fim; }).length;
+      const mc = media(com), ms = media(sem);
+      return [{ media_com_post: mc, media_sem_post: ms, multiplicador: com.length && ms ? Math.round(mc / ms * 10) / 10 : null,
+        ultimo_post: ultimo, dias_sem_post: ultimo ? Math.round((hoje - Date.parse(ultimo + 'T00:00:00Z')) / day) : null, posts_semana }];
+    }
+  });
+</script>
+
+<script>
+  const nf = new Intl.NumberFormat('pt-BR');
+  const brl = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' });
+  const fmtDia = d3.utcFormat('%d/%m');
+  const pd = (s) => new Date(String(s).slice(0, 10) + 'T00:00:00Z');
+  const fmt = (m, v) => (v == null ? '—' : (m === 'shop_gmv' || m === 'shop_ticket') ? brl.format(v) : nf.format(v));
+  const linhaResumo = (m) => { const r = dash.data('resumo'); return r.status === 'ok' && Array.isArray(r.data) ? r.data.find((x) => x.metrica === m) : null; };
+  const efeito = () => { const r = dash.data('efeito_posts'); return r.status === 'ok' && Array.isArray(r.data) ? r.data[0] : null; };
+
+  dash.draw('semana', (el) => { const r = linhaResumo('ig_views') || linhaResumo('shop_gmv'); el.textContent = r ? `${fmtDia(pd(r.inicio))} a ${fmtDia(pd(r.fim))}` : '—'; });
+  dash.draw('lede-igv', (el) => { const r = linhaResumo('ig_views'); el.textContent = r ? nf.format(r.atual) : '—'; });
+  dash.draw('lede-posts', (el) => { const e = efeito(); el.textContent = e ? nf.format(e.posts_semana) : '—'; });
+  dash.draw('lede-mult', (el) => { const e = efeito(); el.textContent = e && e.multiplicador != null ? nf.format(e.multiplicador) : '—'; });
+  dash.draw('kpi', (el) => { const r = linhaResumo(el.dataset.m); el.textContent = r ? fmt(el.dataset.m, r.atual) : '—'; });
+  dash.draw('kpi-raw', (el) => { const r = linhaResumo(el.dataset.m); el.textContent = r ? fmt(el.dataset.m, r.atual) : '—'; });
+  dash.draw('kpi-d', (el) => {
+    const r = linhaResumo(el.dataset.m);
+    el.replaceChildren();
+    if (!r) { el.textContent = '—'; return; }
+    const part = (v, txt) => { const s = document.createElement('span'); if (v == null) { s.textContent = `sem base ${txt}`; } else { s.textContent = `${v > 0 ? '▲' : v < 0 ? '▼' : '='} ${nf.format(Math.abs(v))}% ${txt}`; s.className = v > 0 ? 'da-up' : v < 0 ? 'da-down' : ''; } return s; };
+    if (!r.completo) {
+      const s = document.createElement('span'); s.className = 'da-down';
+      s.textContent = `Incompleto: faltam ${7 - r.dias_semana} dia(s) nos dados desta semana ou da anterior`;
+      el.append(s); return;
+    }
+    el.append(part(r.var_anterior, 'vs semana anterior'));
+  });
+  dash.draw('ig-seg', (el) => { const r = dash.data('ig_seguidores'); el.textContent = r.status === 'ok' && r.data[0] ? nf.format(+r.data[0].followers_count) : '—'; });
+  dash.draw('dias-sem-post', (el) => { const e = efeito(); el.textContent = !e ? '—' : e.dias_sem_post != null ? nf.format(e.dias_sem_post) : '28+'; });
+  dash.draw('ultimo-post', (el) => { const e = efeito(); el.textContent = !e ? '—' : e.ultimo_post ? d3.utcFormat('%d/%m/%Y')(pd(e.ultimo_post)) : 'antes do período mostrado (28 dias)'; });
+  dash.draw('ef-com', (el) => { const e = efeito(); el.textContent = e ? nf.format(e.media_com_post) : '—'; });
+  dash.draw('ef-sem', (el) => { const e = efeito(); el.textContent = e ? nf.format(e.media_sem_post) : '—'; });
+
+  const tipLayer = (el) => { const t = document.createElement('div'); t.className = 'da-tip'; t.hidden = true; el.append(t); return t; };
+  const showTip = (el, tip, ev, txt) => { const b = el.getBoundingClientRect(); tip.textContent = txt; tip.hidden = false; const w = tip.offsetWidth; let x = ev.clientX - b.left + 10; if (x + w > b.width) x = ev.clientX - b.left - w - 10; tip.style.left = Math.max(0, x) + 'px'; tip.style.top = Math.max(0, ev.clientY - b.top - 34) + 'px'; };
+
+  const barChart = (el, rows, opts) => {
+    el.replaceChildren();
+    if (!rows.length) { el.textContent = '—'; return; }
+    const W = Math.max(260, el.clientWidth), H = 200, m = { t: 22, r: 8, b: 24, l: 40 };
+    const x = d3.scaleBand().domain(rows.map(opts.key)).range([m.l, W - m.r]).padding(0.2);
+    const y = d3.scaleLinear().domain([0, d3.max(rows, opts.val) || 1]).nice().range([H - m.b, m.t]);
+    const svg = d3.select(el).append('svg').attr('width', '100%').attr('viewBox', `0 0 ${W} ${H}`).attr('role', 'img').attr('aria-label', opts.aria);
+    svg.append('g').attr('transform', `translate(${m.l},0)`).call(d3.axisLeft(y).ticks(4).tickSize(-(W - m.l - m.r)).tickFormat(opts.yfmt || d3.format('~s')))
+      .call((g) => g.selectAll('line').style('stroke', 'var(--cds-chart-grid)')).call((g) => g.select('.domain').remove());
+    const every = Math.ceil(rows.length / Math.max(2, Math.floor((W - m.l) / 46)));
+    svg.append('g').attr('transform', `translate(0,${H - m.b})`).call(d3.axisBottom(x).tickValues(x.domain().filter((_, i) => i % every === 0)).tickFormat(opts.xfmt).tickSize(0))
+      .call((g) => g.select('.domain').style('stroke', 'var(--cds-chart-axis)')).call((g) => g.selectAll('text').attr('dy', '1em'));
+    const tip = tipLayer(el);
+    svg.append('g').selectAll('rect').data(rows).join('rect')
+      .attr('x', (d) => x(opts.key(d))).attr('width', x.bandwidth()).attr('y', (d) => y(opts.val(d))).attr('height', (d) => y(0) - y(opts.val(d)))
+      .style('fill', (d, i) => (opts.hl && opts.hl(d, i) ? dash.colors[0] : 'var(--cds-chart-muted)'))
+      .on('pointermove', (ev, d) => showTip(el, tip, ev, opts.tip(d))).on('pointerleave', () => { tip.hidden = true; });
+    if (opts.labels) svg.append('g').selectAll('text').data(rows).join('text').attr('x', (d) => x(opts.key(d)) + x.bandwidth() / 2).attr('y', (d) => y(opts.val(d)) - 5).attr('text-anchor', 'middle').text((d) => opts.labels(d));
+    if (opts.marks) svg.append('g').selectAll('circle').data(rows.filter(opts.marks)).join('circle').attr('cx', (d) => x(opts.key(d)) + x.bandwidth() / 2).attr('cy', m.t - 10).attr('r', 4).style('fill', dash.colors[1] || dash.colors[0]);
+    return svg;
+  };
+
+  dash.draw('ch-shop', (el) => {
+    const s = dash.data('shop_semanas');
+    if (s.status !== 'ok' || !Array.isArray(s.data)) { el.textContent = s.status === 'error' ? 'Não foi possível carregar' : '—'; return; }
+    barChart(el, s.data, { key: (d) => d.inicio, val: (d) => d.gmv, xfmt: (k) => fmtDia(pd(k)), yfmt: (v) => 'R$' + d3.format('~s')(v), aria: 'Vendas do TikTok Shop por semana', hl: (d, i) => i === s.data.length - 1, labels: (d) => brl.format(d.gmv), tip: (d) => `${fmtDia(pd(d.inicio))}–${fmtDia(pd(d.fim))}: ${brl.format(d.gmv)} · ${d.pedidos} pedidos${d.completo ? '' : ` · incompleto (${d.dias} de 7 dias)`}` });
+  });
+
+  dash.draw('ch-ig', (el) => {
+    const a = dash.data('ig_diario'), p = dash.data('ig_posts');
+    if (a.status !== 'ok') { el.textContent = a.status === 'error' ? 'Não foi possível carregar' : '—'; return; }
+    const dias = new Set((p.status === 'ok' ? p.data : []).map((x) => String(x.timestamp).slice(0, 10)));
+    const rows = a.data.map((r) => ({ date: String(r.date).slice(0, 10), v: +r.views || 0 })).sort((x, y) => (x.date < y.date ? -1 : 1));
+    barChart(el, rows, { key: (d) => d.date, val: (d) => d.v, xfmt: (k) => fmtDia(pd(k)), aria: 'Visualizações diárias do Instagram com dias de post marcados', hl: (d) => dias.has(d.date), marks: (d) => dias.has(d.date), tip: (d) => `${fmtDia(pd(d.date))}: ${nf.format(d.v)} visualizações${dias.has(d.date) ? ' · dia com post' : ''}` });
+  });
+
+  dash.draw('ch-tt', (el) => {
+    const a = dash.data('tt_diario');
+    if (a.status !== 'ok') { el.textContent = a.status === 'error' ? 'Não foi possível carregar' : '—'; return; }
+    const rows = a.data.map((r) => ({ date: String(r.date).slice(0, 10), v: +r.video_views || 0 })).sort((x, y) => (x.date < y.date ? -1 : 1));
+    barChart(el, rows, { key: (d) => d.date, val: (d) => d.v, xfmt: (k) => fmtDia(pd(k)), aria: 'Visualizações diárias do TikTok', hl: () => true, tip: (d) => `${fmtDia(pd(d.date))}: ${nf.format(d.v)} visualizações` });
+  });
+
+  const el = (tag, cls, txt) => { const e = document.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; };
+
+  dash.calc('radar_resumo', {
+    inputs: ['radar'],
+    title: 'Contagem do radar',
+    description: 'Quantas pautas do radar mais recente estão no painel (nota 75 ou mais) e em cada faixa: hot (acima de 85) e ideia (75 a 85).',
+    fn: (radar) => {
+      const p = radar.filter((r) => r.tipo === 'pauta');
+      const ult = p.reduce((m, r) => (r.data > m ? r.data : m), '');
+      const d = p.filter((r) => r.data === ult);
+      return [{ data: ult, total: d.filter((r) => +r.score >= 75).length, hot: d.filter((r) => +r.score > 85).length, ideias: d.filter((r) => +r.score >= 75 && +r.score <= 85).length }];
+    }
+  });
+
+  const radarRows = () => { const r = dash.data('radar'); return r.status === 'ok' && Array.isArray(r.data) ? r.data : null; };
+  const pautasAtuais = (rows) => { const p = rows.filter((r) => r.tipo === 'pauta'); const ult = p.reduce((m, r) => (r.data > m ? r.data : m), ''); return p.filter((r) => r.data === ult).sort((a, b) => b.score - a.score); };
+  const notas = (rows) => rows.filter((r) => r.tipo === 'nota_radar').sort((a, b) => (a.data < b.data ? -1 : 1));
+  const nf1 = new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+
+  dash.draw('radar-nota', (el) => { const rows = radarRows(); const n = rows && notas(rows).pop(); el.textContent = n ? nf1.format(n.nota) : '—'; if (n) { el.dataset.where = 'id=' + n.id; el.dataset.field = 'nota'; } });
+  dash.draw('radar-nota-d', (el) => { const rows = radarRows(); const n = rows && notas(rows).pop(); el.replaceChildren(); if (!n) return; const s = el.ownerDocument.createElement('span'); s.className = n.nota >= 8.5 ? 'da-up' : 'da-down'; s.textContent = `${n.nota >= 8.5 ? 'Na meta' : 'Abaixo da meta'} · radar de ${d3.utcFormat('%d/%m')(pd(n.data))} · cobertura ${nf1.format(n.cobertura)} · fontes ${nf1.format(n.qualidade_fontes)} · frescor ${nf1.format(n.frescor)}`; el.append(s); });
+  dash.draw('radar-motivo', (el) => { const rows = radarRows(); const n = rows && notas(rows).pop(); el.textContent = n ? n.motivo : '—'; });
+  dash.draw('radar-hist', (el) => { const rows = radarRows(); el.replaceChildren(); if (!rows) return; const ns = notas(rows).slice(-10); const box = el.ownerDocument.createElement('div'); box.className = 'da-hist'; box.append(Object.assign(el.ownerDocument.createElement('span'), { textContent: 'Histórico:' })); ns.forEach((n) => box.append(Object.assign(el.ownerDocument.createElement('span'), { textContent: `${d3.utcFormat('%d/%m')(pd(n.data))} ${nf1.format(n.nota)}` }))); el.append(box); });
+  ['radar-total', 'radar-hot'].forEach((name) => dash.draw(name, (el) => { const r = dash.data('radar_resumo'); const v = r.status === 'ok' && Array.isArray(r.data) && r.data[0] ? r.data[0][el.dataset.field] : null; el.textContent = v == null ? '—' : nf.format(v); }));
+
+  let dbPromise = null;
+  const getDb = () => { if (!dbPromise) dbPromise = (window.claude && window.claude.use) ? window.claude.use('db').catch(() => null) : Promise.resolve(null); return dbPromise; };
+  let uidPromise = null;
+  const getUid = () => {
+    if (!uidPromise) uidPromise = (async () => {
+      try { const u = (window.claude && window.claude.use) ? await window.claude.use('user') : null; const id = u ? await u.id() : null; if (id) return id; } catch (e) { /* sem user */ }
+      try { let k = localStorage.getItem('delhi_votante'); if (!k) { k = 'b_' + Math.random().toString(36).slice(2, 12); localStorage.setItem('delhi_votante', k); } return k; } catch (e) { return null; }
+    })();
+    return uidPromise;
+  };
+  const docVoto = (db, col, key, uid) => db.collection(col).doc((uid + '__' + key).replace(/[^A-Za-z0-9_\-.~:@+]/g, '_'));
+  const marcar = (up, down, voto) => { up.setAttribute('aria-pressed', String(voto === 'bom')); down.setAttribute('aria-pressed', String(voto === 'fraco')); };
+  const votoAtual = (up, down) => (up.getAttribute('aria-pressed') === 'true' ? 'bom' : down.getAttribute('aria-pressed') === 'true' ? 'fraco' : null);
+  // Um voto por pessoa por ideia: clicar de novo no mesmo voto remove; clicar no outro troca.
+  const aplicarVoto = async (o) => {
+    const db = await getDb(); const uid = await getUid();
+    if (!db || !uid) { o.aviso.textContent = 'Avaliação indisponível nesta visualização'; return; }
+    if (o.up.disabled) return;
+    o.up.disabled = true; o.down.disabled = true;
+    const ref = docVoto(db, o.col, o.key, uid);
+    try {
+      if (votoAtual(o.up, o.down) === o.voto) { await ref.delete(); marcar(o.up, o.down, null); o.aviso.textContent = 'Avaliação removida'; }
+      else { await ref.set(Object.assign({}, o.dados, { quem: uid, voto: o.voto, motivo: o.motivo || '', em: new Date().toISOString() })); marcar(o.up, o.down, o.voto); o.aviso.textContent = 'Avaliação registrada'; }
+      if (o.depois) o.depois();
+    } catch (e) { o.aviso.textContent = 'Não foi possível registrar a avaliação'; }
+    finally { o.up.disabled = false; o.down.disabled = false; }
+  };
+  const ligarVoto = (o) => {
+    o.up.setAttribute('aria-pressed', 'false'); o.down.setAttribute('aria-pressed', 'false');
+    o.up.addEventListener('click', () => { o.motivoBox.hidden = true; aplicarVoto(Object.assign({}, o, { voto: 'bom', motivo: '' })); });
+    o.down.addEventListener('click', () => { if (votoAtual(o.up, o.down) === 'fraco') { o.motivoBox.hidden = true; aplicarVoto(Object.assign({}, o, { voto: 'fraco' })); } else { o.motivoBox.hidden = false; o.ta.focus(); } });
+    o.enviar.addEventListener('click', () => { o.motivoBox.hidden = true; aplicarVoto(Object.assign({}, o, { voto: 'fraco', motivo: o.ta.value.trim() })); });
+    o.wrap.dataset.vcol = o.col; o.wrap.dataset.vkey = o.key;
+  };
+  const marcarMeusVotos = async (box) => {
+    const db = await getDb(); const uid = await getUid(); if (!db || !uid) return;
+    for (const col of ['feedback', 'feedback_programacao']) {
+      const grupos = box.querySelectorAll(`[data-vcol="${col}"]`); if (!grupos.length) continue;
+      try {
+        const snap = await db.collection(col).where('quem', '==', uid).get();
+        const meus = {}; snap.docs.forEach((d) => { const v = d.data(); const k = col === 'feedback' ? `${v.data_radar}_${v.pauta}` : v.item; meus[k] = v.voto; });
+        grupos.forEach((g) => { const up = g.querySelector('[data-voto="bom"]'), down = g.querySelector('[data-voto="fraco"]'); if (up && down && meus[g.dataset.vkey]) marcar(up, down, meus[g.dataset.vkey]); });
+      } catch (e) { /* sem leitura */ }
+    }
+  };
+  const contarVotos = async (box) => {
+    const db = await getDb();
+    box.querySelectorAll('[data-votos]').forEach((s) => { s.textContent = db ? '' : 'Avaliação indisponível nesta visualização'; });
+    if (!db) return;
+    try {
+      const snap = await db.collection('feedback').get();
+      const cont = {};
+      snap.docs.forEach((d) => { const v = d.data(); if (!v.quem) return; const k = `${v.data_radar}_${v.pauta}`; cont[k] = cont[k] || { bom: 0, fraco: 0 }; if (v.voto === 'bom' || v.voto === 'fraco') cont[k][v.voto]++; });
+      box.querySelectorAll('[data-votos]').forEach((s) => { const c = cont[s.dataset.votos]; s.textContent = c ? `👍 ${c.bom} · 👎 ${c.fraco}` : ''; });
+    } catch (e) { /* sem leitura de votos */ }
+    marcarMeusVotos(box);
+  };
+
+  const lerJson = (v, vazio) => { if (v && typeof v === 'object') return v; if (typeof v === 'string') { try { return JSON.parse(v); } catch (e) { return vazio; } } return vazio; };
+  const cartao = (t, completo) => {
+    const doc = document;
+    const rotulos = lerJson(t.rotulos, []), criterios = lerJson(t.criterios, {}), fontes = lerJson(t.fontes, []), prompts = lerJson(t.prompts, []);
+    const mk = (tag, cls, txt) => { const e = doc.createElement(tag); if (cls) e.className = cls; if (txt != null) e.textContent = txt; return e; };
+    const c = mk('article', 'da-card da-idea');
+    const top = mk('div', 'da-score');
+    const n = mk('span', 'da-score-n' + (t.score > 85 ? ' da-score-hot' : ''), String(t.score)); n.dataset.source = 'radar'; n.dataset.where = 'id=' + t.id; n.dataset.field = 'score';
+    top.append(n, mk('span', 'da-k', `/100 · tier ${t.tier} · radar ${t.qualidade_radar}`));
+    c.append(mk('span', 'da-tag', `${t.produto} · ${t.formato_ia ? 'IA: ' + t.formato_ia : t.formato} · público ${t.publico}`), top, mk('h3', null, t.titulo));
+    const ch = mk('div', 'da-chips'); (Array.isArray(rotulos) ? rotulos : []).forEach((r) => ch.append(mk('span', 'da-chip', r))); c.append(ch);
+    const bars = mk('div', 'da-bars');
+    const crit = [['fit', 'Fit Delhi', 25], ['momento', 'Momento', 20], ['sinal', 'Sinal', 20], ['publico', 'Público', 15], ['facilidade', 'Produção IA', 10], ['perene', 'Perene', 10]];
+    crit.forEach(([k, lab, max]) => { const v = +(criterios || {})[k] || 0; const row = mk('div', 'da-bar'); const tr = mk('div', 'da-bar-track'); const f = mk('div', 'da-bar-fill'); f.style.width = Math.max(0, Math.min(100, v / max * 100)) + '%'; tr.append(f); row.append(mk('span', null, lab), tr, mk('span', null, `${v}/${max}`)); bars.append(row); });
+    c.append(bars);
+    const lista = (destino) => (k, v, cls) => { if (!v) return; destino.append(mk('dt', null, k)); const dd = mk('dd'); dd.append(mk('p', cls || null, v)); destino.append(dd); };
+    const dlFit = mk('dl');
+    lista(dlFit)('Por que combina com a Delhi', t.fit_delhi);
+    c.append(dlFit);
+
+    const mais = mk('div', 'da-mais'); mais.hidden = true; mais.id = 'mais-' + t.id;
+    const dl = mk('dl');
+    const item = lista(dl);
+    item('Qualidade do radar', t.qualidade_motivo);
+    item('Hook', t.hook);
+    item('Roteiro', t.roteiro);
+    item('Legenda', t.legenda, 'da-caption');
+    mais.append(dl);
+    const copiar = (b, txt, el) => { const ok = () => { const o = b.textContent; b.textContent = 'Copiado'; setTimeout(() => { b.textContent = o; }, 1500); }; const sel = () => { const s = getSelection(); const rg = document.createRange(); rg.selectNodeContents(el); s.removeAllRanges(); s.addRange(rg); }; try { navigator.clipboard.writeText(txt).then(ok, sel); } catch (e) { sel(); } };
+    if (t.legenda) {
+      const b = mk('button', 'da-btn', 'Copiar legenda'); b.type = 'button';
+      b.addEventListener('click', () => { const p = mais.querySelector('.da-caption'); if (p) copiar(b, p.textContent, p); });
+      mais.append(b);
+    }
+    if (Array.isArray(prompts) && prompts.length) {
+      const pb = mk('div', 'da-prompts');
+      pb.append(mk('span', 'da-k', `Prompts para IA (${prompts.length} cena${prompts.length > 1 ? 's' : ''})`));
+      prompts.forEach((p) => {
+        const box = mk('div', 'da-prompt');
+        box.append(mk('span', 'da-k', [p.cena, p.tipo, p.duracao].filter(Boolean).join(' · ')));
+        const pt = mk('p', 'da-prompt-txt', p.prompt || '');
+        box.append(pt);
+        if (p.referencia) box.append(mk('span', 'da-k', 'Referência: ' + p.referencia));
+        if (p.texto_tela) box.append(mk('span', 'da-k', 'Texto na tela (Claude): ' + p.texto_tela));
+        const b = mk('button', 'da-btn', 'Copiar prompt'); b.type = 'button';
+        b.addEventListener('click', () => copiar(b, p.prompt || '', pt));
+        box.append(b);
+        pb.append(box);
+      });
+      mais.append(pb);
+    }
+    if (t.nota) mais.append(mk('p', 'da-sub', t.nota));
+    const src = mk('div', 'da-src');
+    const fl = Array.isArray(fontes) ? fontes : [];
+    src.append(mk('span', 'da-k', `${fl.length} fonte(s): `));
+    fl.forEach((f) => { const a = doc.createElement('a'); a.href = f.url; a.target = '_blank'; a.rel = 'noopener'; a.textContent = `${f.nome} · ${d3.utcFormat('%d/%m/%Y')(pd(f.data))}`; src.append(a); });
+    mais.append(src);
+
+    const lerMais = mk('button', 'da-btn da-lermais', 'Ler mais'); lerMais.type = 'button';
+    lerMais.setAttribute('aria-expanded', 'false'); lerMais.setAttribute('aria-controls', mais.id);
+    lerMais.addEventListener('click', () => { const abrir = mais.hidden; mais.hidden = !abrir; lerMais.setAttribute('aria-expanded', String(abrir)); lerMais.textContent = abrir ? 'Ler menos' : 'Ler mais'; });
+    c.append(lerMais, mais);
+    const fb = mk('div', 'da-fb');
+    const up = mk('button', 'da-btn', '👍 Boa pauta'); up.type = 'button';
+    const down = mk('button', 'da-btn', '👎 Fraca'); down.type = 'button';
+    const votos = mk('span', 'da-k'); votos.dataset.votos = `${t.data}_${t.id}`;
+    const status = mk('span', 'da-k');
+    const motivoBox = mk('div'); motivoBox.hidden = true; motivoBox.style.width = '100%';
+    const ta = mk('textarea'); ta.rows = 2; ta.placeholder = 'Por que está fraca? (opcional)'; ta.setAttribute('aria-label', 'Motivo da avaliação fraca');
+    const enviar = mk('button', 'da-btn', 'Enviar avaliação'); enviar.type = 'button';
+    motivoBox.append(ta, enviar);
+    up.dataset.voto = 'bom'; down.dataset.voto = 'fraco';
+    ligarVoto({ col: 'feedback', key: `${t.data}_${t.id}`, dados: { pauta: t.id, titulo: t.titulo, data_radar: t.data }, up, down, aviso: status, motivoBox, ta, enviar, wrap: fb, depois: () => { const g = fb.closest('[data-draw]'); if (g) contarVotos(g); } });
+    fb.append(up, down, votos, status, motivoBox);
+    c.append(fb);
+    return c;
+  };
+
+  const desenharPautas = (box, filtro) => {
+    const rows = radarRows();
+    box.replaceChildren();
+    if (!rows) { box.textContent = '—'; return; }
+    const todas = pautasAtuais(rows);
+    const top3 = new Set(todas.slice(0, 3).map((t) => t.id));
+    const lista = todas.filter(filtro);
+    if (!lista.length) { box.append(Object.assign(document.createElement('p'), { className: 'da-sub', textContent: 'Todas as pautas boas de hoje já estão na programação.' })); return; }
+    lista.forEach((t) => box.append(cartao(t, top3.has(t.id) || t.score > 85)));
+    contarVotos(box);
+  };
+  dash.draw('pautas-ideias', (box) => desenharPautas(box, (t) => t.score >= 75 && String(t.na_programacao) !== 'true'));
+  dash.draw('datas', (box) => {
+    const rows = radarRows();
+    box.replaceChildren();
+    if (!rows) { box.textContent = '—'; return; }
+    const hoje = Date.parse(new Date().toISOString().slice(0, 10) + 'T00:00:00Z');
+    rows.filter((t) => t.tipo === 'sazonal').forEach((t) => {
+      const dias = Math.round((Date.parse(t.data + 'T00:00:00Z') - hoje) / 864e5);
+      if (dias < 0) return;
+      const c = el('div', 'da-card' + (dias <= 21 ? ' da-alert' : ''));
+      c.append(el('span', 'da-k', `${t.tema} · ${d3.utcFormat('%d/%m')(pd(t.data))}`), el('span', 'da-v', dias === 0 ? 'Hoje' : `${dias} dias`), el('span', 'da-d', t.como_adaptar));
+      box.append(c);
+    });
+  });
+
+  const progRows = () => { const r = dash.data('programacao'); return r.status === 'ok' && Array.isArray(r.data) ? r.data : null; };
+  const diaNome = { Seg: 'Segunda', Ter: 'Terça', Qua: 'Quarta', Qui: 'Quinta', Sex: 'Sexta' };
+  const copiarTxt = (b, txt, alvo) => { const ok = () => { const o = b.textContent; b.textContent = 'Copiado'; setTimeout(() => { b.textContent = o; }, 1500); }; const sel = () => { const s = getSelection(); const rg = document.createRange(); rg.selectNodeContents(alvo); s.removeAllRanges(); s.addRange(rg); }; try { navigator.clipboard.writeText(txt).then(ok, sel); } catch (e) { sel(); } };
+  const lerStatus = async () => {
+    const db = await getDb(); if (!db) return null;
+    try { const snap = await db.collection('programacao_status').get(); const ult = {}; snap.docs.forEach((d) => { const v = d.data(); if (!v || !v.item) return; if (!ult[v.item] || ult[v.item].em < v.em) ult[v.item] = v; }); return ult; } catch (e) { return null; }
+  };
+  const gravarStatus = async (item, semana, status) => { const db = await getDb(); if (!db) return false; try { await db.collection('programacao_status').add({ item, semana, status, em: new Date().toISOString() }); return true; } catch (e) { return false; } };
+
+  dash.draw('prog-dias', (box) => {
+    const doc = box.ownerDocument;
+    const mk = (tag, cls, txt) => { const x = doc.createElement(tag); if (cls) x.className = cls; if (txt != null) x.textContent = txt; return x; };
+    box.replaceChildren(); const rows = progRows(); if (!rows) { box.textContent = '—'; return; }
+    const s = rows.find((r) => r.tipo === 'semana'); const semana = s ? s.id : '';
+    const itens = rows.filter((r) => r.tipo === 'post' || r.tipo === 'sem_pauta');
+    const dias = [...new Set(itens.map((p) => p.dia))].sort();
+    dias.forEach((dia) => {
+      const doDia = itens.filter((p) => p.dia === dia).sort((a, b) => (a.canal === 'feed' ? -1 : 1));
+      const card = mk('article', 'da-card da-prog-dia');
+      const temFeed = doDia.some((p) => p.canal === 'feed' && p.tipo === 'post');
+      card.append(mk('h3', null, `${diaNome[doDia[0].dia_semana] || doDia[0].dia_semana}, ${d3.utcFormat('%d/%m')(pd(dia))}`), mk('span', 'da-k', temFeed ? 'Feed + Stories' : 'Só Stories'));
+      doDia.forEach((p) => {
+        const it = mk('div', 'da-prog-item');
+        if (p.tipo === 'sem_pauta') {
+          it.append(mk('span', 'da-prog-canal', p.canal === 'feed' ? 'Feed' : 'Stories'), mk('h4', null, 'Sem pauta forte para este dia'));
+          if (p.motivo) it.append(mk('p', 'da-sub', p.motivo));
+          card.append(it); return;
+        }
+        const hora = p.horario ? `${p.horario.replace(':00', 'h')}${String(p.horario_teste) === 'true' ? ' (teste)' : ''}` : 'horário a confirmar';
+        it.append(mk('span', 'da-prog-canal', `${p.canal === 'feed' ? 'Feed' : 'Stories'} · ${p.formato} · ${hora} · ${p.objetivo}`));
+        const top = mk('div', 'da-score');
+        top.append(mk('span', 'da-score-n' + (+p.nota > 85 ? ' da-score-hot' : ''), String(p.nota)), mk('span', 'da-k', '/100'), mk('span', 'da-chip', '✅ Postar'));
+        if (String(p.teste_semana) === 'true') top.append(mk('span', 'da-chip', '🧪 Teste da semana'));
+        const troca = lerJson(p.trocado, null);
+        if (troca && troca.em) top.append(mk('span', 'da-chip', `🔄 Atualizado em ${d3.utcFormat('%d/%m')(pd(troca.em))}`));
+        it.append(top, mk('h4', null, p.titulo));
+        if (p.motivo) it.append(mk('p', null, p.motivo));
+        const mais = mk('div', 'da-mais'); mais.hidden = true; mais.id = 'prog-mais-' + p.id;
+        const dl = mk('dl'); const add = (k, v) => { if (!v) return; dl.append(mk('dt', null, k)); const dd = mk('dd'); dd.append(mk('p', null, v)); dl.append(dd); };
+        add('Produto', p.produto); add('Estratégia', p.estrategia); add('Por que neste dia', p.por_que_dia); add('Por que neste horário', p.por_que_horario);
+        add('Tipo de foto', p.tipo_foto); add('Quem faz a imagem', p.quem_faz);
+        const w = mk('div', 'da-idea'); w.append(dl); mais.append(w);
+        if (String(p.teste_semana) === 'true' && p.hipotese) mais.append(mk('p', 'da-sub', 'Hipótese do teste: ' + p.hipotese));
+        const telas = lerJson(p.telas, []);
+        if (Array.isArray(telas) && telas.length) {
+          mais.append(mk('span', 'da-k', `Tela a tela (${telas.length})`));
+          telas.forEach((tl) => {
+            const tb = mk('div', 'da-tela');
+            tb.append(mk('span', 'da-k', `Tela ${tl.n} · ${tl.origem}`));
+            tb.append(mk('p', null, 'Imagem: ' + tl.imagem));
+            if (tl.texto) tb.append(mk('p', null, 'Texto na arte (Claude): ' + tl.texto));
+            if (tl.adesivo) tb.append(mk('p', null, 'Adesivo: ' + tl.adesivo));
+            if (tl.prompt) { const pt = mk('p', 'da-prompt-txt', tl.prompt); tb.append(mk('span', 'da-k', 'Prompt para o Gemini (use a foto real como referência)'), pt); const b = mk('button', 'da-btn', 'Copiar prompt'); b.type = 'button'; b.addEventListener('click', () => copiarTxt(b, tl.prompt, pt)); tb.append(b); }
+            mais.append(tb);
+          });
+        }
+        if (p.legenda) {
+          const cap = mk('p', 'da-caption', p.legenda + (p.hashtags ? '\n\n' + p.hashtags : '')); cap.style.whiteSpace = 'pre-line';
+          mais.append(mk('span', 'da-k', 'Legenda'), cap);
+          const b = mk('button', 'da-btn', 'Copiar legenda'); b.type = 'button'; b.addEventListener('click', () => copiarTxt(b, cap.textContent, cap)); mais.append(b);
+        }
+        if (p.tiktok) mais.append(mk('p', 'da-sub', 'TikTok: ' + p.tiktok));
+        const extra = p.nota_extra || (typeof p.nota === 'string' ? p.nota : '');
+        if (extra) mais.append(mk('p', 'da-sub', 'Atenção: ' + extra));
+        const lm = mk('button', 'da-btn da-lermais', 'Ver ideia completa'); lm.type = 'button'; lm.setAttribute('aria-expanded', 'false'); lm.setAttribute('aria-controls', mais.id);
+        lm.addEventListener('click', () => { const abrir = mais.hidden; mais.hidden = !abrir; lm.setAttribute('aria-expanded', String(abrir)); lm.textContent = abrir ? 'Fechar ideia' : 'Ver ideia completa'; });
+        const st = mk('div', 'da-status'); st.dataset.item = p.id; const aviso = mk('span', 'da-k');
+        [['a_fazer', 'A fazer'], ['pronto', 'Pronto'], ['postado', 'Postado']].forEach(([v, lab]) => {
+          const b = mk('button', 'da-btn', lab); b.type = 'button'; b.dataset.v = v; b.setAttribute('aria-pressed', v === 'a_fazer' ? 'true' : 'false');
+          b.addEventListener('click', async () => { const ok = await gravarStatus(p.id, semana, v); if (ok) { st.querySelectorAll('[data-v]').forEach((x) => x.setAttribute('aria-pressed', String(x.dataset.v === v))); aviso.textContent = ''; } else aviso.textContent = 'Não foi possível salvar nesta visualização'; });
+          st.append(b);
+        });
+        st.append(aviso);
+        const up = mk('button', 'da-btn', '👍 Boa ideia'); up.type = 'button';
+        const down = mk('button', 'da-btn', '👎 Fraca'); down.type = 'button';
+        const fbAviso = mk('span', 'da-k');
+        const motivoBox = mk('div'); motivoBox.hidden = true; motivoBox.style.width = '100%';
+        const ta = mk('textarea'); ta.rows = 2; ta.placeholder = 'Por que está fraca? (opcional)'; ta.setAttribute('aria-label', 'Motivo da avaliação fraca');
+        const enviar = mk('button', 'da-btn', 'Enviar avaliação'); enviar.type = 'button';
+        motivoBox.append(ta, enviar);
+        up.dataset.voto = 'bom'; down.dataset.voto = 'fraco';
+        const fbWrap = mk('span', 'da-status');
+        ligarVoto({ col: 'feedback_programacao', key: p.id, dados: { item: p.id, titulo: p.titulo, semana }, up, down, aviso: fbAviso, motivoBox, ta, enviar, wrap: fbWrap });
+        fbWrap.append(up, down, fbAviso, motivoBox);
+        st.append(fbWrap);
+        it.append(lm, mais, st);
+        card.append(it);
+      });
+      box.append(card);
+    });
+    marcarMeusVotos(box);
+    lerStatus().then((ult) => { if (!ult) return; box.querySelectorAll('.da-status').forEach((st) => { const u = ult[st.dataset.item]; if (u) st.querySelectorAll('[data-v]').forEach((x) => x.setAttribute('aria-pressed', String(x.dataset.v === u.status))); }); });
+  });
+
+  dash.draw('prog-conf', (box) => {
+    const doc = box.ownerDocument;
+    const mk = (tag, cls, txt) => { const x = doc.createElement(tag); if (cls) x.className = cls; if (txt != null) x.textContent = txt; return x; };
+    box.replaceChildren(); const sec = box.closest('section'); const rows = progRows();
+    const conf = rows ? rows.filter((r) => r.tipo === 'conferencia') : [];
+    if (sec) sec.hidden = !conf.length; if (!conf.length) return;
+    const icone = { 'acertou': '✅ Acertou', 'errou': '❌ Errou', 'subestimou': '📈 Subestimou', 'não postado': '⏸ Não postado' };
+    conf.sort((a, b) => (a.dia < b.dia ? -1 : 1)).forEach((c) => {
+      const card = mk('article', 'da-card da-idea');
+      card.append(mk('span', 'da-k', `${d3.utcFormat('%d/%m')(pd(c.dia))} · nota ${c.nota} · esperado: ${c.esperado}`), mk('h3', null, c.titulo));
+      const top = mk('div', 'da-score'); top.append(mk('span', 'da-chip', icone[c.veredito] || c.veredito), mk('span', 'da-k', 'Desempenho: ' + c.desempenho)); card.append(top);
+      if (c.metricas) card.append(mk('p', 'da-sub', c.metricas));
+      if (c.aprendizado) { const dl = mk('dl'); dl.append(mk('dt', null, 'O que o agente aprendeu')); const dd = mk('dd'); dd.append(mk('p', null, c.aprendizado)); dl.append(dd); card.append(dl); }
+      box.append(card);
+    });
+  });
+
+  const abrirAba = (id) => {
+    document.querySelectorAll('.da-tab').forEach((p) => { p.hidden = p.id !== id; });
+    document.querySelectorAll('.da-tabbtn').forEach((b) => { b.setAttribute('aria-selected', String(b.dataset.tab === id)); });
+  };
+  document.querySelectorAll('.da-tabbtn').forEach((b) => b.addEventListener('click', () => { abrirAba(b.dataset.tab); dash.setLink(b.dataset.tab); }));
+  { const alvo = (location.hash || '').slice(1); if (alvo === 'semanal' || alvo === 'radar-diario') abrirAba(alvo); else if (alvo === 'programacao' || alvo === 'marketing') abrirAba('radar-diario'); }
+</script>

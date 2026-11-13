@@ -1,0 +1,530 @@
+[
+ {
+  "tipo": "semana",
+  "id": "sem-2026-11-16",
+  "inicio": "2026-11-16",
+  "fim": "2026-11-20",
+  "gerada_em": "2026-11-12",
+  "teste": true,
+  "foco": "Voltar a postar com regularidade (1 post no feed nos últimos 28 dias) e apresentar a marca própria antes da Black Friday (27/11) e da ceia de Natal.",
+  "publico": "Seguidores do Instagram: 66% mulheres; 60% têm de 35 a 54 anos e 24% têm 55 ou mais (dado do Instagram, via Windsor).",
+  "horario": "Horários em teste: o Instagram não informa pelo Windsor em que hora os seguidores ficam online, e só houve 1 post nos últimos 28 dias. Nesta semana o feed alterna 19h (seg e sex) e 12h (qua); a revisão da próxima segunda compara o alcance de cada horário.",
+  "revisao_anterior": "Primeira programação: não há semana anterior para conferir. A primeira conferência será em 23/11/2026.",
+  "precisa": "Fotos reais (frente da embalagem, fundo liso, boa luz) de: Tahine Delhi, Açúcar de tâmara em pó, Ghee Delhi, Raspador de língua de cobre e Chai Massala Delhi. Logo em PNG com fundo transparente.",
+  "observacao": "Sexta, 20/11, é feriado nacional (Dia da Consciência Negra). O post de sexta pode ser agendado no Instagram na quinta.",
+  "nota_programacao": 7.0,
+  "nota_motivo": "Todos os posts têm nota 75 ou mais e a semana passa por 4 pilares. Perde pontos porque os horários ainda são teste e a Delhi não tem posts conferidos para confirmar as estratégias."
+ },
+ {
+  "tipo": "post",
+  "id": "2026-11-16-feed",
+  "dia": "2026-11-16",
+  "dia_semana": "Seg",
+  "canal": "feed",
+  "horario": "19:00",
+  "horario_teste": true,
+  "objetivo": "Ensinar",
+  "formato": "carrossel",
+  "produto": "Tahine Delhi",
+  "pauta_id": "p4",
+  "titulo": "Tahine não é só para homus: 3 usos no dia a dia",
+  "tipo_foto": "Fotos de cena de cima (flat lay) em mesa de madeira clara, formato 4:5: um prato por tela e a embalagem real do Tahine Delhi na capa e na última tela.",
+  "quem_faz": "Capa e última tela: arte feita pelo Claude com a foto real da embalagem. Telas 2 a 4: fotos de cena no Gemini a partir da foto real.",
+  "telas": [
+   {
+    "n": 1,
+    "origem": "Arte (Claude)",
+    "imagem": "Embalagem real do Tahine Delhi em destaque, fundo laranja #FC7D44 suave com arabesco discreto.",
+    "texto": "Tahine não é só para homus",
+    "prompt": "",
+    "adesivo": ""
+   },
+   {
+    "n": 2,
+    "origem": "Gemini",
+    "imagem": "Salada verde com molho de tahine sendo regado por uma colher.",
+    "texto": "1. Molho para salada: tahine + limão + água + sal",
+    "prompt": "Foto vertical 4:5, vista de cima, de uma tigela de salada verde com folhas, pepino e tomate-cereja; uma mão regando com colher um molho cremoso bege de tahine. Mesa de madeira clara, estilo Delhi: tons de laranja #FC7D44, dourado e terrosos, luz natural suave, composição limpa e premium. Pote de tahine ao fundo desfocado, igual à foto de referência. Não incluir: rostos, pessoas comendo, texto, letras ou logotipos gerados, outras marcas.",
+    "adesivo": ""
+   },
+   {
+    "n": 3,
+    "origem": "Gemini",
+    "imagem": "Torrada com tahine e fio de mel.",
+    "texto": "2. Na torrada, com um fio de mel",
+    "prompt": "Foto vertical 4:5, close de duas torradas de pão de fermentação natural com camada cremosa de tahine e um fio de mel escorrendo, numa tábua de madeira. Luz natural da manhã, estilo Delhi: tons de laranja #FC7D44, dourado e terrosos, luz natural suave, composição limpa e premium. Não incluir: rostos, pessoas comendo, texto, letras ou logotipos gerados, outras marcas.",
+    "adesivo": ""
+   },
+   {
+    "n": 4,
+    "origem": "Gemini",
+    "imagem": "Legumes assados com tahine por cima.",
+    "texto": "3. Por cima dos legumes assados",
+    "prompt": "Foto vertical 4:5, vista de cima, de uma travessa de cerâmica com abóbora, cenoura e grão-de-bico assados, com fio de tahine e salsinha por cima. estilo Delhi: tons de laranja #FC7D44, dourado e terrosos, luz natural suave, composição limpa e premium. Não incluir: rostos, pessoas comendo, texto, letras ou logotipos gerados, outras marcas.",
+    "adesivo": ""
+   },
+   {
+    "n": 5,
+    "origem": "Arte (Claude)",
+    "imagem": "Lista curta dos 3 usos com ícones simples.",
+    "texto": "Salve para usar na semana",
+    "prompt": "",
+    "adesivo": ""
+   },
+   {
+    "n": 6,
+    "origem": "Arte (Claude)",
+    "imagem": "Embalagem real do Tahine Delhi + endereço do site.",
+    "texto": "Tahine Delhi · link na bio",
+    "prompt": "",
+    "adesivo": ""
+   }
+  ],
+  "legenda": "Tahine não é só para homus. 🥄\n\nFeito de gergelim, o tahine dá cremosidade e um sabor tostado a receitas do dia a dia:\n\n✓ Molho para salada: misture tahine, suco de limão, um pouco de água e sal.\n✓ Na torrada, com um fio de mel.\n✓ Por cima de legumes assados.\n\nSalve este post para testar na semana. Qual você vai fazer primeiro?\n\nConfira nossa lista completa de produtos acessando: www.delhiespeciarias.com.br / Ou pelo link na Bio.",
+  "hashtags": "#tahine #gergelim #receitasfaceis #delhiespeciarias #sabores",
+  "tiktok": "Repostar as 6 fotos no TikTok como carrossel de fotos, com a mesma legenda (sem hashtags de Instagram demais).",
+  "nota": 79,
+  "criterios": {
+   "fit": 22,
+   "momento": 13,
+   "sinal": 12,
+   "publico": 12,
+   "facilidade": 10,
+   "perene": 10
+  },
+  "ajuste": "Sem ajuste: ainda não há aprendizados conferidos.",
+  "teste_semana": false,
+  "hipotese": "",
+  "motivo": "Marca própria e conteúdo que se guarda para depois: bom para abrir a semana ensinando.",
+  "estrategia": "Conteúdo salvável + gancho na capa",
+  "por_que_dia": "Segunda abre a semana com conteúdo de ensinar (a venda fica para quarta, depois que o público já viu o produto em uso). Carrossel de receitas é pensado para ser salvo e usado nos próximos dias.",
+  "por_que_horario": "Teste: 19h. Ainda não há posts suficientes para saber o melhor horário da Delhi (1 post no feed nos últimos 28 dias). Esta semana compara 19h (seg e sex) com 12h (qua).",
+  "nota_extra": "Ingredientes do tahine: confira no rótulo antes de publicar."
+ },
+ {
+  "tipo": "post",
+  "id": "2026-11-16-stories",
+  "dia": "2026-11-16",
+  "dia_semana": "Seg",
+  "canal": "stories",
+  "horario": "10:00",
+  "horario_teste": true,
+  "objetivo": "Engajar",
+  "formato": "stories (3 telas)",
+  "produto": "Tahine Delhi",
+  "pauta_id": "p4",
+  "titulo": "Enquete: você usa tahine além do homus?",
+  "tipo_foto": "Telas verticais 9:16: foto de cena e embalagem real.",
+  "quem_faz": "Telas 1 e 3: arte feita pelo Claude. Tela 2: repost do post do feed às 19h.",
+  "telas": [
+   {
+    "n": 1,
+    "origem": "Arte (Claude)",
+    "imagem": "Foto da embalagem do Tahine Delhi com fundo laranja.",
+    "texto": "Você usa tahine além do homus?",
+    "prompt": "",
+    "adesivo": "Enquete: Sim, sempre / Só no homus"
+   },
+   {
+    "n": 2,
+    "origem": "Repost",
+    "imagem": "Compartilhar o carrossel do feed depois das 19h.",
+    "texto": "Novo post: 3 usos do tahine",
+    "prompt": "",
+    "adesivo": "Adesivo: post do feed"
+   },
+   {
+    "n": 3,
+    "origem": "Arte (Claude)",
+    "imagem": "Embalagem real do Tahine Delhi.",
+    "texto": "Tahine Delhi na loja",
+    "prompt": "",
+    "adesivo": "Link: www.delhiespeciarias.com.br"
+   }
+  ],
+  "legenda": "",
+  "hashtags": "",
+  "tiktok": "",
+  "nota": 76,
+  "criterios": {
+   "fit": 22,
+   "momento": 14,
+   "sinal": 12,
+   "publico": 12,
+   "facilidade": 10,
+   "perene": 6
+  },
+  "ajuste": "Sem ajuste: ainda não há aprendizados conferidos.",
+  "teste_semana": false,
+  "hipotese": "",
+  "motivo": "Prepara o post da noite e mede, pela enquete, o interesse no tahine.",
+  "estrategia": "Reforço nos stories + pesquisa com enquete",
+  "por_que_dia": "Mesmo tema do feed do dia: a enquete da manhã aquece o assunto e o repost à noite leva quem viu o story até o carrossel.",
+  "por_que_horario": "Teste: 10h, para a enquete ficar no ar o dia todo antes do post das 19h.",
+  "nota_extra": ""
+ },
+ {
+  "tipo": "post",
+  "id": "2026-11-17-stories",
+  "dia": "2026-11-17",
+  "dia_semana": "Ter",
+  "canal": "stories",
+  "horario": "10:00",
+  "horario_teste": true,
+  "objetivo": "Ensinar",
+  "formato": "stories (3 telas)",
+  "produto": "Raspador de língua de cobre Delhi Ayurveda",
+  "pauta_id": "p5",
+  "titulo": "Um minuto antes do café: o raspador de cobre",
+  "tipo_foto": "Foto de cena de bancada de banheiro clara, com o raspador sobre toalha de algodão; só mãos.",
+  "quem_faz": "Tela 1: Gemini a partir da foto real. Telas 2 e 3: arte feita pelo Claude.",
+  "telas": [
+   {
+    "n": 1,
+    "origem": "Gemini",
+    "imagem": "Raspador de cobre sobre toalha branca ao lado de copo d'água, luz da manhã.",
+    "texto": "Antes do café, um minuto para você",
+    "prompt": "Foto vertical 9:16 de uma bancada de banheiro clara com o raspador de língua de cobre (igual à foto de referência) sobre uma toalha de algodão branca dobrada, ao lado de um copo de vidro com água. Luz natural da manhã entrando pela janela, estilo Delhi: tons de laranja #FC7D44, dourado e terrosos, luz natural suave, composição limpa e premium. Não incluir: rostos, pessoas comendo, texto, letras ou logotipos gerados, outras marcas.",
+    "adesivo": ""
+   },
+   {
+    "n": 2,
+    "origem": "Arte (Claude)",
+    "imagem": "Fundo terroso com ilustração simples do raspador.",
+    "texto": "No Ayurveda, raspar a língua faz parte da rotina da manhã. Você já tem esse hábito?",
+    "prompt": "",
+    "adesivo": "Quiz: Já uso / Quero começar / Não conhecia"
+   },
+   {
+    "n": 3,
+    "origem": "Arte (Claude)",
+    "imagem": "Embalagem real do raspador.",
+    "texto": "Raspador de cobre Delhi Ayurveda",
+    "prompt": "",
+    "adesivo": "Link: www.delhiespeciarias.com.br"
+   }
+  ],
+  "legenda": "",
+  "hashtags": "",
+  "tiktok": "",
+  "nota": 77,
+  "criterios": {
+   "fit": 24,
+   "momento": 8,
+   "sinal": 12,
+   "publico": 13,
+   "facilidade": 10,
+   "perene": 10
+  },
+  "ajuste": "Sem ajuste: ainda não há aprendizados conferidos.",
+  "teste_semana": false,
+  "hipotese": "",
+  "motivo": "Produto exclusivo da marca própria, com tema de rotina que conversa com o público de 35 a 54 anos.",
+  "estrategia": "Pesquisa com enquete (quiz), no pilar rotina e autocuidado",
+  "por_que_dia": "Terça não tem feed: os stories mantêm a conta ativa com um pilar diferente (rotina e autocuidado), sem disputar atenção com os posts.",
+  "por_que_horario": "Teste: 10h. O tema é a rotina da manhã; postar cedo combina com o assunto.",
+  "nota_extra": "Sem promessa de saúde nem números de eficácia: só o hábito e o produto."
+ },
+ {
+  "tipo": "post",
+  "id": "2026-11-18-feed",
+  "dia": "2026-11-18",
+  "dia_semana": "Qua",
+  "canal": "feed",
+  "horario": "12:00",
+  "horario_teste": true,
+  "objetivo": "Vender",
+  "formato": "foto única",
+  "produto": "Açúcar de tâmara em pó",
+  "pauta_id": "p3",
+  "titulo": "Uma troca na colher: açúcar de tâmara no café",
+  "tipo_foto": "Foto de cena 4:5, ângulo de 45 graus: colher com açúcar de tâmara sobre xícara de café, embalagem real ao lado.",
+  "quem_faz": "Gemini a partir da foto real da embalagem.",
+  "telas": [
+   {
+    "n": 1,
+    "origem": "Gemini",
+    "imagem": "Colher de açúcar de tâmara sobre xícara de café, embalagem ao lado, tâmaras inteiras num pires.",
+    "texto": "(sem texto na foto; se quiser, \"Uma troca na colher\" no Canva)",
+    "prompt": "Foto vertical 4:5, ângulo de 45 graus, de uma xícara de café preto sobre pires de cerâmica; uma mão segura uma colher com açúcar de tâmara em pó marrom acima da xícara. Ao lado, a embalagem do açúcar de tâmara igual à foto de referência e um pequeno pires com tâmaras inteiras. Mesa de madeira, estilo Delhi: tons de laranja #FC7D44, dourado e terrosos, luz natural suave, composição limpa e premium. Não incluir: rostos, pessoas comendo, texto, letras ou logotipos gerados, outras marcas.",
+    "adesivo": ""
+   }
+  ],
+  "legenda": "Uma troca na colher. ☕\n\nO açúcar de tâmara em pó é feito da fruta desidratada e moída, com sabor que lembra caramelo. Ele entra no café, no mingau e nas receitas de bolo, na mesma colher do açúcar de sempre.\n\nVocê já experimentou?\n\nConfira nossa lista completa de produtos acessando: www.delhiespeciarias.com.br / Ou pelo link na Bio.",
+  "hashtags": "#acucardetamara #tamara #cafe #delhiespeciarias #receitas",
+  "tiktok": "Não repostar (foto única rende pouco no TikTok).",
+  "nota": 83,
+  "criterios": {
+   "fit": 20,
+   "momento": 16,
+   "sinal": 17,
+   "publico": 12,
+   "facilidade": 10,
+   "perene": 8
+  },
+  "ajuste": "Sem ajuste: ainda não há aprendizados conferidos.",
+  "teste_semana": true,
+  "hipotese": "Foto única de produto (venda) tem alcance diferente de carrossel de receita (ensinar). A conferência compara o alcance e as visitas ao perfil deste post com os carrosséis de segunda e sexta.",
+  "motivo": "Interesse em reduzir o açúcar refinado está em alta no Brasil, e é o único post de venda da semana.",
+  "estrategia": "Educar antes de vender (post de produto com chamada para a loja)",
+  "por_que_dia": "Quarta é o meio da semana: o público já viu dois conteúdos de ensinar antes do post de venda. Fica a 9 dias da Black Friday, quando a Delhi quer a marca própria lembrada.",
+  "por_que_horario": "Teste: 12h, para comparar com os posts das 19h de segunda e sexta.",
+  "nota_extra": "Confira no rótulo como o produto é descrito e a proporção de troca indicada antes de publicar."
+ },
+ {
+  "tipo": "post",
+  "id": "2026-11-18-stories",
+  "dia": "2026-11-18",
+  "dia_semana": "Qua",
+  "canal": "stories",
+  "horario": "17:00",
+  "horario_teste": true,
+  "objetivo": "Engajar",
+  "formato": "stories (3 telas)",
+  "produto": "Açúcar de tâmara em pó",
+  "pauta_id": "p3",
+  "titulo": "Enquete: você já trocou o açúcar?",
+  "tipo_foto": "Telas verticais 9:16: a foto do post do feed e a embalagem real.",
+  "quem_faz": "Tela 1: arte feita pelo Claude. Tela 2: repost do post do feed. Tela 3: arte feita pelo Claude.",
+  "telas": [
+   {
+    "n": 1,
+    "origem": "Arte (Claude)",
+    "imagem": "Embalagem real do açúcar de tâmara com fundo terroso.",
+    "texto": "Você já trocou o açúcar do café?",
+    "prompt": "",
+    "adesivo": "Enquete: Já troquei / Quero testar"
+   },
+   {
+    "n": 2,
+    "origem": "Repost",
+    "imagem": "Compartilhar o post do feed depois das 12h.",
+    "texto": "Uma troca na colher",
+    "prompt": "",
+    "adesivo": "Adesivo: post do feed"
+   },
+   {
+    "n": 3,
+    "origem": "Arte (Claude)",
+    "imagem": "Embalagem real do açúcar de tâmara.",
+    "texto": "Açúcar de tâmara na loja",
+    "prompt": "",
+    "adesivo": "Link: www.delhiespeciarias.com.br"
+   }
+  ],
+  "legenda": "",
+  "hashtags": "",
+  "tiktok": "",
+  "nota": 78,
+  "criterios": {
+   "fit": 20,
+   "momento": 16,
+   "sinal": 16,
+   "publico": 12,
+   "facilidade": 10,
+   "perene": 4
+  },
+  "ajuste": "Sem ajuste: ainda não há aprendizados conferidos.",
+  "teste_semana": false,
+  "hipotese": "",
+  "motivo": "Reforça o único post de venda da semana e mede quem já usa substitutos do açúcar.",
+  "estrategia": "Reforço nos stories + pesquisa com enquete",
+  "por_que_dia": "Mesmo tema do feed do dia: a enquete pela manhã e o repost depois das 12h levam o público ao post de venda.",
+  "por_que_horario": "Teste: 10h, antes do post das 12h.",
+  "nota_extra": ""
+ },
+ {
+  "tipo": "post",
+  "id": "2026-11-19-stories",
+  "dia": "2026-11-19",
+  "dia_semana": "Qui",
+  "canal": "stories",
+  "horario": "17:00",
+  "horario_teste": true,
+  "objetivo": "Engajar",
+  "formato": "stories (3 telas)",
+  "produto": "Chai Massala Delhi",
+  "pauta_id": "p1",
+  "titulo": "Chai quente ou gelado?",
+  "tipo_foto": "Foto de cena 9:16: copo alto de chai gelado com gelo, embalagem real ao lado.",
+  "quem_faz": "Tela 1: Gemini a partir da foto real. Telas 2 e 3: arte feita pelo Claude.",
+  "telas": [
+   {
+    "n": 1,
+    "origem": "Gemini",
+    "imagem": "Copo de chai gelado com gelo e canela, embalagem do Chai Massala ao lado.",
+    "texto": "Chai também é de verão",
+    "prompt": "Foto vertical 9:16 de um copo alto de vidro com chá chai gelado de cor caramelo, cubos de gelo e um pau de canela, sobre mesa de madeira clara ao ar livre com luz de fim de tarde. Ao lado, a embalagem do Chai Massala Delhi igual à foto de referência. estilo Delhi: tons de laranja #FC7D44, dourado e terrosos, luz natural suave, composição limpa e premium. Não incluir: rostos, pessoas comendo, texto, letras ou logotipos gerados, outras marcas.",
+    "adesivo": ""
+   },
+   {
+    "n": 2,
+    "origem": "Arte (Claude)",
+    "imagem": "Fundo terroso com o copo recortado.",
+    "texto": "Você prefere chai…",
+    "prompt": "",
+    "adesivo": "Enquete: Quente / Gelado"
+   },
+   {
+    "n": 3,
+    "origem": "Arte (Claude)",
+    "imagem": "Embalagem real do Chai Massala.",
+    "texto": "Chai Massala Delhi",
+    "prompt": "",
+    "adesivo": "Link: www.delhiespeciarias.com.br"
+   }
+  ],
+  "legenda": "",
+  "hashtags": "",
+  "tiktok": "",
+  "nota": 80,
+  "criterios": {
+   "fit": 23,
+   "momento": 15,
+   "sinal": 13,
+   "publico": 11,
+   "facilidade": 10,
+   "perene": 8
+  },
+  "ajuste": "Sem ajuste: ainda não há aprendizados conferidos.",
+  "teste_semana": false,
+  "hipotese": "",
+  "motivo": "Marca própria e calor de fim de primavera: o chai gelado tira o produto do 'só inverno'.",
+  "estrategia": "Pesquisa com enquete (o resultado vira pauta)",
+  "por_que_dia": "Quinta não tem feed: stories com enquete mantêm a interação e testam se vale fazer um post de feed do chai gelado na semana seguinte.",
+  "por_que_horario": "Teste: 17h, fim de tarde, horário da bebida gelada que a foto mostra.",
+  "nota_extra": ""
+ },
+ {
+  "tipo": "post",
+  "id": "2026-11-20-feed",
+  "dia": "2026-11-20",
+  "dia_semana": "Sex",
+  "canal": "feed",
+  "horario": "19:00",
+  "horario_teste": true,
+  "objetivo": "Ensinar",
+  "formato": "carrossel",
+  "produto": "Ghee Delhi",
+  "pauta_id": "p2",
+  "titulo": "Farofa da ceia com Ghee: sem lactose na mesa",
+  "tipo_foto": "Fotos de cena 4:5 em clima de ceia (toalha de linho, luz quente), passo a passo de cima; embalagem real do Ghee na capa e na última tela.",
+  "quem_faz": "Capa: Gemini a partir da foto real. Telas 2 a 4: arte feita pelo Claude (passo a passo). Tela 5: arte com a embalagem real.",
+  "telas": [
+   {
+    "n": 1,
+    "origem": "Gemini",
+    "imagem": "Travessa de farofa dourada na mesa da ceia, pote de Ghee ao lado.",
+    "texto": "A farofa da ceia, sem lactose",
+    "prompt": "Foto vertical 4:5 de uma travessa de cerâmica com farofa dourada com salsinha, numa mesa de ceia de Natal com toalha de linho, luz quente de velas ao fundo desfocado. Ao lado, o pote de Ghee Delhi igual à foto de referência. estilo Delhi: tons de laranja #FC7D44, dourado e terrosos, luz natural suave, composição limpa e premium. Não incluir: rostos, pessoas comendo, texto, letras ou logotipos gerados, outras marcas.",
+    "adesivo": ""
+   },
+   {
+    "n": 2,
+    "origem": "Arte (Claude)",
+    "imagem": "Lista de ingredientes com fundo claro.",
+    "texto": "Ingredientes: 2 colheres de sopa de Ghee · 1 cebola · 2 dentes de alho · 2 xícaras de farinha de mandioca · sal e salsinha",
+    "prompt": "",
+    "adesivo": ""
+   },
+   {
+    "n": 3,
+    "origem": "Arte (Claude)",
+    "imagem": "Passo 1 e 2.",
+    "texto": "Doure a cebola e o alho no Ghee. Junte a farinha aos poucos, mexendo.",
+    "prompt": "",
+    "adesivo": ""
+   },
+   {
+    "n": 4,
+    "origem": "Arte (Claude)",
+    "imagem": "Passo 3.",
+    "texto": "Mexa até ficar dourada e crocante. Acerte o sal e finalize com salsinha.",
+    "prompt": "",
+    "adesivo": ""
+   },
+   {
+    "n": 5,
+    "origem": "Arte (Claude)",
+    "imagem": "Embalagem real do Ghee Delhi.",
+    "texto": "Ghee Delhi: 0% lactose · link na bio",
+    "prompt": "",
+    "adesivo": ""
+   }
+  ],
+  "legenda": "A farofa da ceia, sem lactose na mesa. 🎄\n\nTroque a manteiga pelo Ghee Delhi: ele doura a cebola e deixa a farofa crocante e perfumada.\n\n✓ 2 colheres de sopa de Ghee\n✓ 1 cebola e 2 dentes de alho\n✓ 2 xícaras de farinha de mandioca\n✓ Sal e salsinha\n\nSalve para a ceia e marque quem cuida da farofa na sua família.\n\nConfira nossa lista completa de produtos acessando: www.delhiespeciarias.com.br / Ou pelo link na Bio.",
+  "hashtags": "#ghee #semlactose #ceiadenatal #farofa #delhiespeciarias",
+  "tiktok": "Repostar as 5 fotos no TikTok como carrossel de fotos.",
+  "nota": 84,
+  "criterios": {
+   "fit": 24,
+   "momento": 18,
+   "sinal": 13,
+   "publico": 14,
+   "facilidade": 10,
+   "perene": 5
+  },
+  "ajuste": "Sem ajuste: ainda não há aprendizados conferidos.",
+  "teste_semana": false,
+  "hipotese": "",
+  "motivo": "Ghee é marca própria e resolve um problema real da ceia (lactose); quem cozinha começa a planejar o cardápio com antecedência.",
+  "estrategia": "Antecipação sazonal + problema e solução",
+  "por_que_dia": "Sexta fecha a semana com uma receita para salvar antes do fim de semana. Faltam 35 dias para a ceia: a antecipação começa agora. Sexta é feriado: agendar na quinta.",
+  "por_que_horario": "Teste: 19h, igual a segunda, para ter dois carrosséis no mesmo horário e comparar com a quarta às 12h.",
+  "nota_extra": "Feriado: agendar no Instagram na quinta. Confira no rótulo o \"0% lactose\" antes de publicar."
+ },
+ {
+  "tipo": "post",
+  "id": "2026-11-20-stories",
+  "dia": "2026-11-20",
+  "dia_semana": "Sex",
+  "canal": "stories",
+  "horario": "10:00",
+  "horario_teste": true,
+  "objetivo": "Engajar",
+  "formato": "stories (2 telas)",
+  "produto": "Ghee Delhi",
+  "pauta_id": "p2",
+  "titulo": "Contagem para a ceia",
+  "tipo_foto": "Arte com a embalagem real do Ghee e fundo de ceia.",
+  "quem_faz": "Arte feita pelo Claude.",
+  "telas": [
+   {
+    "n": 1,
+    "origem": "Arte (Claude)",
+    "imagem": "Embalagem real do Ghee com fundo de ceia desfocado.",
+    "texto": "Já pensou no cardápio da ceia?",
+    "prompt": "",
+    "adesivo": "Contagem regressiva: Ceia de Natal (24/12)"
+   },
+   {
+    "n": 2,
+    "origem": "Repost",
+    "imagem": "Compartilhar o carrossel do feed depois das 19h.",
+    "texto": "Receita nova no feed",
+    "prompt": "",
+    "adesivo": "Adesivo: post do feed"
+   }
+  ],
+  "legenda": "",
+  "hashtags": "",
+  "tiktok": "",
+  "nota": 79,
+  "criterios": {
+   "fit": 23,
+   "momento": 17,
+   "sinal": 12,
+   "publico": 13,
+   "facilidade": 10,
+   "perene": 4
+  },
+  "ajuste": "Sem ajuste: ainda não há aprendizados conferidos.",
+  "teste_semana": false,
+  "hipotese": "",
+  "motivo": "Puxa o post da noite e começa a conversa sobre a ceia.",
+  "estrategia": "Reforço nos stories + antecipação sazonal",
+  "por_que_dia": "Mesmo tema do feed do dia, com contagem regressiva para a ceia.",
+  "por_que_horario": "Teste: 10h, com repost do carrossel depois das 19h.",
+  "nota_extra": ""
+ }
+]

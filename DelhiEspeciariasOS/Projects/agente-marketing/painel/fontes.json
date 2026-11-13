@@ -1,0 +1,181 @@
+{
+  "dash/meta": {
+    "lang": "pt-BR",
+    "title": "Painel DelhiAgente"
+  },
+  "datasets": {
+    "ig_diario": {
+      "description": "Visualizações, alcance e interações diárias do @delhiespeciarias nos últimos 28 dias.",
+      "edit": {
+        "at": "2026-11-12T13:15:00Z",
+        "via": "claude"
+      },
+      "source": {
+        "args": {
+          "connector": "instagram",
+          "date_preset": "last_28d",
+          "fields": [
+            "date",
+            "views",
+            "reach",
+            "accounts_engaged",
+            "total_interactions"
+          ]
+        },
+        "connector": "Windsor.ai",
+        "kind": "call",
+        "tool": "get_data"
+      },
+      "title": "Instagram por dia"
+    },
+    "ig_posts": {
+      "description": "Posts publicados pelo @delhiespeciarias nos últimos 28 dias.",
+      "edit": {
+        "at": "2026-11-12T13:15:00Z",
+        "via": "claude"
+      },
+      "source": {
+        "args": {
+          "connector": "instagram",
+          "date_preset": "last_28d",
+          "fields": [
+            "timestamp",
+            "media_type",
+            "media_like_count",
+            "media_comments_count",
+            "media_permalink"
+          ]
+        },
+        "connector": "Windsor.ai",
+        "kind": "call",
+        "tool": "get_data"
+      },
+      "title": "Posts do Instagram"
+    },
+    "ig_seguidores": {
+      "description": "Total atual de seguidores do @delhiespeciarias.",
+      "edit": {
+        "at": "2026-11-09T18:30:00Z",
+        "via": "claude"
+      },
+      "source": {
+        "args": {
+          "connector": "instagram",
+          "fields": [
+            "followers_count"
+          ]
+        },
+        "connector": "Windsor.ai",
+        "kind": "call",
+        "tool": "get_data"
+      },
+      "title": "Seguidores do Instagram"
+    },
+    "radar": {
+      "description": "Pautas pesquisadas pelo DelhiAgente com nota de 0 a 100, datas sazonais e a nota de qualidade de cada radar.",
+      "edit": {
+        "at": "2026-11-12T14:24:10Z",
+        "via": "claude"
+      },
+      "fixed": true,
+      "source": {
+        "format": "json",
+        "kind": "file",
+        "name": "radar.json",
+        "url": "/_blob/e81cd6102aa2ff95c09458420fb644eb"
+      },
+      "title": "Radar de pautas",
+      "updated": {
+        "at": "2026-11-12T14:24:10Z",
+        "by": "DelhiAgente — radar de 12/11/2026 (histórico de notas de teste zerado)"
+      }
+    },
+    "shop_diario": {
+      "description": "Vendas (GMV), pedidos, unidades e visitas às páginas de produto no TikTok Shop, últimos 28 dias.",
+      "edit": {
+        "at": "2026-11-12T13:15:00Z",
+        "via": "claude"
+      },
+      "source": {
+        "args": {
+          "connector": "tiktok_shop",
+          "date_preset": "last_28d",
+          "fields": [
+            "date",
+            "shop_performance_gmv_amount",
+            "shop_performance_orders",
+            "shop_performance_units_sold",
+            "shop_performance_product_page_views"
+          ]
+        },
+        "connector": "Windsor.ai",
+        "kind": "call",
+        "tool": "get_data"
+      },
+      "title": "TikTok Shop por dia"
+    },
+    "tt_diario": {
+      "description": "Visualizações, curtidas e visitas ao perfil da conta Delhi Especiarias no TikTok, últimos 28 dias.",
+      "edit": {
+        "at": "2026-11-12T13:15:00Z",
+        "via": "claude"
+      },
+      "source": {
+        "args": {
+          "connector": "tiktok_organic",
+          "date_preset": "last_28d",
+          "fields": [
+            "date",
+            "video_views",
+            "likes",
+            "comments",
+            "shares",
+            "profile_views"
+          ]
+        },
+        "connector": "Windsor.ai",
+        "kind": "call",
+        "tool": "get_data"
+      },
+      "title": "TikTok por dia"
+    },
+    "vendas_teste": {
+      "title": "Vendas por canal (teste: hoje)",
+      "description": "Teste: pedidos de 12/11/2026 até 13h06, somados por canal a partir do Bling. Só totais, sem dados de clientes.",
+      "fixed": true,
+      "source": {
+        "kind": "file",
+        "format": "json",
+        "name": "vendas-teste.json",
+        "url": "/_blob/728135ebfb9d4ddef125cb7cae405d90"
+      },
+      "updated": {
+        "at": "2026-11-12T16:06:57Z",
+        "by": "Teste Bling — vendas parciais de 12/11/2026"
+      },
+      "edit": {
+        "via": "claude",
+        "at": "2026-11-12T16:10:00Z"
+      }
+    },
+    "programacao": {
+      "title": "Programação da semana",
+      "description": "O que postar de segunda a sexta, com nota de 0 a 100 por post (só entra com 75 ou mais), estratégia, porquê do dia e do horário, telas, prompts, legenda e a conferência da semana anterior. Montada pelo DelhiAgente toda segunda.",
+      "fixed": true,
+      "source": {
+        "format": "json",
+        "kind": "file",
+        "name": "programacao.json",
+        "url": "/_blob/c7f69ffa30fda88abd00e8feffadd0a0"
+      },
+      "updated": {
+        "at": "2026-11-12T17:50:00Z",
+        "by": "DelhiAgente — programação de teste com análise, semana de 16/11/2026"
+      },
+      "edit": {
+        "via": "claude",
+        "at": "2026-11-12T17:50:00Z"
+      }
+    }
+  }
+}

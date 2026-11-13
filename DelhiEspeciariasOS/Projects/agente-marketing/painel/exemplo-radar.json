@@ -1,0 +1,345 @@
+[
+ {
+  "id": "p1",
+  "tipo": "pauta",
+  "data": "2026-11-12",
+  "titulo": "Cenoura assada da ceia com Garam Masala e Ghee, prato pronto primeiro",
+  "produto": "Garam Masala Delhi + Ghee Delhi",
+  "score": 87,
+  "criterios": {
+   "fit": 23,
+   "momento": 19,
+   "sinal": 16,
+   "publico": 13,
+   "facilidade": 10,
+   "perene": 6
+  },
+  "tier": "A",
+  "rotulos": [
+   "ceia de Natal",
+   "prato pronto primeiro",
+   "60+"
+  ],
+  "qualidade_radar": "média",
+  "qualidade_motivo": "Prioridade da ceia medida por Scanntech/Google (out/2026); formato com métrica do próprio site.",
+  "fit_delhi": "Dois produtos da marca própria num acompanhamento simples da ceia. Repete o formato que levou 👍 ontem, agora com outro produto.",
+  "formato": "Reels + TikTok, só mãos e produto, 20 s",
+  "publico": "60+",
+  "hook": "Primeiro a travessa pronta e dourada. Depois: só 3 ingredientes.",
+  "roteiro": "1. Travessa de cenouras assadas, close na colherada (2 s) · 2. Texto: 'cenoura da ceia em 3 passos' · 3. Ghee Delhi derretido nas cenouras cortadas (3 s) · 4. Garam Masala Delhi polvilhado (3 s) · 5. Forno (corte, 2 s) · 6. Travessa pronta com os dois potes ao lado (4 s).",
+  "legenda": "Um acompanhamento diferente para a ceia, sem complicação. Envolva as cenouras no Ghee Delhi derretido, polvilhe o Garam Masala Delhi e leve ao forno até dourar. Simples, perfumado e bonito na mesa. Salve para a ceia! Confira nossa lista completa de produtos acessando: www.delhiespeciarias.com.br / Ou pelo link na Bio.",
+  "nota": "Tempo e temperatura de forno: testar na gravação antes de escrever na tela.",
+  "fontes": [
+   {
+    "nome": "SA+ (Scanntech/Google): itens da ceia são prioridade de gasto para 65% dos brasileiros",
+    "url": "https://samais.com.br/publicacoes/natal-ceia-ganha-prioridade-no-orcamento-do-consumidor",
+    "data": "2026-10-30"
+   },
+   {
+    "nome": "Volume: formato 'mostre o prato pronto antes do preparo', 50 contas, mediana 14x o normal (métrica própria do site, não verificada)",
+    "url": "https://tryvolume.app/working/food-and-nutrition",
+    "data": "2026-11-11"
+   }
+  ]
+ },
+ {
+  "id": "p2",
+  "tipo": "pauta",
+  "data": "2026-11-12",
+  "titulo": "Ghee no lugar da manteiga nos biscoitos de Natal, para quem evita lactose",
+  "produto": "Ghee Delhi",
+  "score": 85,
+  "criterios": {
+   "fit": 25,
+   "momento": 17,
+   "sinal": 13,
+   "publico": 13,
+   "facilidade": 9,
+   "perene": 8
+  },
+  "tier": "A",
+  "rotulos": [
+   "sem lactose",
+   "doces de Natal",
+   "60+"
+  ],
+  "qualidade_radar": "média",
+  "qualidade_motivo": "Pesquisa de 1.000 visitantes do site Receiteria (jul/2026): dado próprio, não representativo.",
+  "fit_delhi": "O Ghee Delhi é 0% lactose e 0% caseína (brand.md). Manteiga está em 77,4% das cestas e zero lactose em 25,4%, segundo o levantamento.",
+  "formato": "Carrossel no Canva (5 telas) + Reels de mãos, 20 s",
+  "publico": "60+",
+  "hook": "Biscoito amanteigado de Natal… sem manteiga?",
+  "roteiro": "1. Biscoitos prontos na lata de Natal (2 s) · 2. Texto: 'o segredo não é manteiga' · 3. Pote de Ghee Delhi aberto, colher cremosa (3 s) · 4. Ghee entrando na massa com farinha e açúcar (5 s) · 5. Biscoitos saindo do forno (3 s) · 6. Texto final: 'Ghee: 0% lactose e 0% caseína' com o pote (4 s).",
+  "legenda": "Os biscoitos de Natal ficam macios e dourados com o Ghee Delhi no lugar da manteiga. Uma boa opção para quem evita lactose: o Ghee Delhi é 0% lactose e 0% caseína. Use na massa como usaria a manteiga e confira o resultado! Confira nossa lista completa de produtos acessando: www.delhiespeciarias.com.br / Ou pelo link na Bio.",
+  "nota": "Confira no rótulo os atributos antes de publicar. Testar a receita antes de indicar a quantidade de Ghee.",
+  "fontes": [
+   {
+    "nome": "Observatório Receiteria (dados próprios, 1.000 respondentes do site): manteiga em 77,4% das cestas; zero lactose em 25,4%",
+    "url": "https://www.receiteria.com.br/observatorio/laticinios-sabor-de-antigamente/",
+    "data": "2026-07-01"
+   }
+  ]
+ },
+ {
+  "id": "p3",
+  "tipo": "pauta",
+  "data": "2026-11-12",
+  "titulo": "Chai Massala quente na xícara da tarde, bebida pronta primeiro",
+  "produto": "Chai Massala Delhi",
+  "score": 85,
+  "criterios": {
+   "fit": 24,
+   "momento": 14,
+   "sinal": 15,
+   "publico": 13,
+   "facilidade": 10,
+   "perene": 9
+  },
+  "tier": "A",
+  "rotulos": [
+   "chá",
+   "bebida pronta primeiro",
+   "60+"
+  ],
+  "qualidade_radar": "média",
+  "qualidade_motivo": "Série Nielsen 2016–2025 divulgada pela Leão (dado de fabricante); formato com métrica do próprio site.",
+  "fit_delhi": "O consumo de chá por pessoa no Brasil subiu cerca de 45% em nove anos. O Chai Massala é marca própria e vira o chá especial da tarde.",
+  "formato": "Reels + TikTok, só mãos e produto, 15 s",
+  "publico": "60+",
+  "hook": "Primeiro a xícara fumegante. Depois: como ela fica assim.",
+  "roteiro": "1. Close da xícara de chai pronta, com vapor (2 s) · 2. Texto: 'o chá da tarde que perfuma a casa' · 3. Chai Massala Delhi entrando na leiteira (3 s) · 4. Fervura e coador (4 s) · 5. Xícara servida ao lado do pote (4 s).",
+  "legenda": "Já experimentou trocar o chá da tarde por um Chai Massala? Ferva o Chai Massala Delhi com leite ou bebida vegetal, coe e sirva quentinho. Uma xícara com sabores do mundo para a sua pausa. Salve para fazer hoje! Confira nossa lista completa de produtos acessando: www.delhiespeciarias.com.br / Ou pelo link na Bio.",
+  "nota": "Modo de preparo e quantidade: conferir no rótulo antes de escrever na tela.",
+  "fontes": [
+   {
+    "nome": "Estado de Minas / Nielsen via Leão (dado do fabricante): chá passou de 16,5 para 24 xícaras por habitante, 2016–2025, cerca de +45%",
+    "url": "https://www.em.com.br/mundo-corporativo/2026/11/7536729-cha-ganha-espaco-no-cotidiano-e-consumo-cresce-45.html",
+    "data": "2026-11-11"
+   },
+   {
+    "nome": "Volume: formato 'mostre a bebida pronta antes de montar', 17 contas, mediana 18x (métrica própria do site, não verificada)",
+    "url": "https://tryvolume.app/working/food-and-nutrition",
+    "data": "2026-11-11"
+   }
+  ]
+ },
+ {
+  "id": "p4",
+  "tipo": "pauta",
+  "data": "2026-11-12",
+  "titulo": "Presente de especiarias Delhi: a caixa montada na tela",
+  "produto": "Chai Massala, Garam Masala e Ghee Delhi",
+  "score": 82,
+  "criterios": {
+   "fit": 21,
+   "momento": 20,
+   "sinal": 15,
+   "publico": 13,
+   "facilidade": 9,
+   "perene": 4
+  },
+  "tier": "B",
+  "rotulos": [
+   "presentes de Natal",
+   "Black Friday",
+   "20–50"
+  ],
+  "qualidade_radar": "média",
+  "qualidade_motivo": "Pesquisa Mercado Pago com 3.345 usuários da própria plataforma (out/2026): não representativa e com conflito de interesse.",
+  "fit_delhi": "73% dos entrevistados pretendem adiantar presentes de Natal na Black Friday. A Delhi entra como presente de curadoria, sem falar de preço.",
+  "formato": "Reels + TikTok, só mãos, 15 s; versão carrossel",
+  "publico": "20–50",
+  "hook": "Presente para quem gosta de cozinhar, montado em 15 segundos.",
+  "roteiro": "1. Caixa fechada com laço (2 s) · 2. Abre: Chai Massala, Garam Masala e Ghee Delhi (4 s) · 3. Close em cada pote com o nome na tela (6 s) · 4. Texto final: 'presente com sabor de viagem' (3 s).",
+  "legenda": "Para quem ama cozinhar, um presente cheio de sabor: Chai Massala para a xícara da tarde, Garam Masala para os pratos de família e Ghee para dourar tudo. Uma seleção especial de sabores do mundo para presentear neste fim de ano. Confira nossa lista completa de produtos acessando: www.delhiespeciarias.com.br / Ou pelo link na Bio.",
+  "nota": "Não citar preço nem desconto. Confirmar com o Natajhi se haverá kit ou embalagem de presente antes de publicar.",
+  "fontes": [
+   {
+    "nome": "Mercado&Consumo / Mercado Pago (3.345 usuários): 73% pretendem adiantar presentes de Natal na Black Friday",
+    "url": "https://mercadoeconsumo.com.br/28/10/2026/black-friday/black-friday-intencao-de-compra-salta-de-23-para-71-diz-pesquisa-do-mercado-pago/",
+    "data": "2026-10-28"
+   },
+   {
+    "nome": "Mercado&Consumo / LWSA: 54% pretendem comprar ao longo de novembro",
+    "url": "https://mercadoeconsumo.com.br/21/09/2026/noticias-varejo/black-friday-se-espalha-por-novembro-e-so-20-concentram-compras-na-sexta-feira/",
+    "data": "2026-09-21"
+   }
+  ]
+ },
+ {
+  "id": "p5",
+  "tipo": "pauta",
+  "data": "2026-11-12",
+  "titulo": "Curry Delhi numa panela só: ingredientes crus, prato pronto",
+  "produto": "Curry Delhi",
+  "score": 81,
+  "criterios": {
+   "fit": 23,
+   "momento": 12,
+   "sinal": 15,
+   "publico": 12,
+   "facilidade": 9,
+   "perene": 10
+  },
+  "tier": "B",
+  "rotulos": [
+   "praticidade",
+   "receita rápida",
+   "20–50"
+  ],
+  "qualidade_radar": "média",
+  "qualidade_motivo": "Dado de volume da Scanntech (2022–2025); formato com métrica do próprio site.",
+  "fit_delhi": "Refeições prontas cresceram 105,7% em volume: praticidade em alta. O Curry Delhi resolve o jantar numa panela só.",
+  "formato": "TikTok + Reels, 20 s",
+  "publico": "20–50",
+  "hook": "Jogue tudo na panela. O Curry Delhi faz o resto.",
+  "roteiro": "",
+  "legenda": "",
+  "nota": "",
+  "fontes": [
+   {
+    "nome": "SA+ (Scanntech): refeições prontas +105,7% em volume, 2022–2025",
+    "url": "https://samais.com.br/publicacoes/proteinas-acessiveis-e-alimentos-in-natura-ganham-espaco-no-carrinho-do-consumidor-brasileiro",
+    "data": "2026-04-09"
+   },
+   {
+    "nome": "Volume: formato 'ingredientes crus numa panela só', 7 contas, mediana 19x (métrica própria do site, não verificada)",
+    "url": "https://tryvolume.app/working/food-and-nutrition",
+    "data": "2026-11-11"
+   }
+  ]
+ },
+ {
+  "id": "p6",
+  "tipo": "pauta",
+  "data": "2026-11-12",
+  "titulo": "Carrossel '5 receitas da ceia com especiarias Delhi'",
+  "produto": "Garam Masala, Curry, Cúrcuma e Ghee Delhi",
+  "score": 78,
+  "criterios": {
+   "fit": 21,
+   "momento": 17,
+   "sinal": 12,
+   "publico": 12,
+   "facilidade": 9,
+   "perene": 7
+  },
+  "tier": "B",
+  "rotulos": [
+   "ceia de Natal",
+   "carrossel",
+   "alternar"
+  ],
+  "qualidade_radar": "baixa",
+  "qualidade_motivo": "Formato medido só pelo site Volume (curtidas), métrica não verificada.",
+  "fit_delhi": "Reúne receitas de vários produtos Delhi num só post salvável para a ceia.",
+  "formato": "Carrossel no Canva, 6 telas",
+  "publico": "alternar",
+  "hook": "5 receitas da ceia com especiarias. Salve e use no dia 24.",
+  "roteiro": "",
+  "legenda": "",
+  "nota": "",
+  "fontes": [
+   {
+    "nome": "Volume: formato 'fotos de comida alternadas com cards de receita', 10 contas, mediana 22x (métrica própria do site, não verificada)",
+    "url": "https://tryvolume.app/working/food-and-nutrition",
+    "data": "2026-11-11"
+   }
+  ]
+ },
+ {
+  "id": "p7",
+  "tipo": "pauta",
+  "data": "2026-11-12",
+  "titulo": "Raspador de cobre: o passo a passo da manhã só com texto na tela",
+  "produto": "Raspador de língua de cobre Delhi Ayurveda",
+  "score": 71,
+  "criterios": {
+   "fit": 22,
+   "momento": 9,
+   "sinal": 9,
+   "publico": 12,
+   "facilidade": 9,
+   "perene": 10
+  },
+  "tier": "B",
+  "rotulos": [
+   "ayurveda",
+   "rotina matinal"
+  ],
+  "qualidade_radar": "baixa",
+  "qualidade_motivo": "Matéria recente, mas só com opinião de terapeuta, sem número.",
+  "fit_delhi": "Produto exclusivo Delhi Ayurveda. A matéria lembra que a prática complementa a escovação, um ângulo seguro.",
+  "formato": "Reels + TikTok, 15 s",
+  "publico": "20–50",
+  "hook": "",
+  "roteiro": "",
+  "legenda": "",
+  "nota": "",
+  "fontes": [
+   {
+    "nome": "Catraca Livre: Ayurveda recomenda raspar a língua ao acordar (sinal qualitativo, sem número publicado)",
+    "url": "https://catracalivre.com.br/saude-bem-estar/o-cuidado-comeca-pela-boca-por-que-o-ayurveda-recomenda-raspar-a-lingua-ao-acordar/",
+    "data": "2026-10-31"
+   }
+  ]
+ },
+ {
+  "id": "p8",
+  "tipo": "pauta",
+  "data": "2026-11-12",
+  "titulo": "Açúcar de tâmara na sobremesa da ceia",
+  "produto": "Açúcar de tâmara em pó",
+  "score": 66,
+  "criterios": {
+   "fit": 17,
+   "momento": 15,
+   "sinal": 7,
+   "publico": 11,
+   "facilidade": 9,
+   "perene": 7
+  },
+  "tier": "B",
+  "rotulos": [
+   "ingredientes naturais",
+   "doces de Natal"
+  ],
+  "qualidade_radar": "baixa",
+  "qualidade_motivo": "Matéria de janeiro sem dado de consumo e com alegações de saúde sem estudo.",
+  "fit_delhi": "Produto do portfólio (marca a confirmar). Ângulo só culinário, sem alegação de saúde.",
+  "formato": "Reels, 20 s",
+  "publico": "60+",
+  "hook": "",
+  "roteiro": "",
+  "legenda": "",
+  "nota": "",
+  "fontes": [
+   {
+    "nome": "Correio Braziliense: tâmara como tendência na alimentação (sinal qualitativo, sem número publicado)",
+    "url": "https://www.correiobraziliense.com.br/cbradar/por-que-a-tamara-virou-tendencia-na-alimentacao-saudavel/",
+    "data": "2026-01-03"
+   }
+  ]
+ },
+ {
+  "id": "s1",
+  "tipo": "sazonal",
+  "tema": "Black Friday",
+  "data": "2026-11-27",
+  "como_adaptar": "Conteúdo de curadoria ('especiarias para presentear'). 54% compram ao longo de novembro, então dá para começar já. Se haverá oferta, quem decide é o Natajhi."
+ },
+ {
+  "id": "s2",
+  "tipo": "sazonal",
+  "tema": "Natal",
+  "data": "2026-12-25",
+  "como_adaptar": "Receitas da ceia com Ghee, Garam Masala e Chai Massala; publicar a partir do início de dezembro."
+ },
+ {
+  "id": "s3",
+  "tipo": "sazonal",
+  "tema": "Ano Novo",
+  "data": "2026-12-31",
+  "como_adaptar": "Receitas leves para a virada: saladas com melaço de romã e Tahine. Só ângulo culinário."
+ }
+]
